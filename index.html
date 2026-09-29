@@ -1,0 +1,1717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charlotte Audio Rentals | Premium AV</title>
+    
+    <!-- Using Space Grotesk for architectural/classy headings and Inter for body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #09090b;
+            --text-main: #f4f4f5;
+            --text-muted: #a1a1aa;
+            --border: rgba(255, 255, 255, 0.1);
+            --accent: #0693e3;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        img { display: block; max-width: 100%; }
+
+        /* Typography */
+        h1, h2, h3, h4, .display-text {
+            font-family: 'Space Grotesk', sans-serif;
+            letter-spacing: -0.04em;
+            line-height: 1.1;
+        }
+
+        /* Nav */
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 32px 48px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), padding 0.3s ease, background 0.3s ease, border-bottom 0.3s ease;
+        }
+
+        .nav.scrolled {
+            padding: 20px 48px;
+            background: rgba(9, 9, 11, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .nav.nav-hidden {
+            transform: translateY(-100%);
+        }
+
+        .nav-logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            line-height: 1.4;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 48px;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .nav-links a {
+            position: relative;
+            overflow: hidden;
+            padding-bottom: 4px;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; width: 100%; height: 1px;
+            background: var(--accent);
+            transform: translateX(-101%);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .nav-links a:hover::after { transform: translateX(0); }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding: 120px 48px 48px 48px;
+        }
+
+        .hero-left {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding-bottom: 8vh;
+        }
+
+        .hero-title {
+            font-size: clamp(64px, 10vw, 140px);
+            font-weight: 400;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+            white-space: nowrap;
+        }
+
+        .hero-title span {
+            display: block;
+            margin-left: 10%;
+            color: var(--text-muted);
+        }
+
+        .hero-right {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-img-container {
+            width: 80%;
+            aspect-ratio: 3/4;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .hero-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: scale(1.1);
+            transition: transform 2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        body:hover .hero-img-container img { transform: scale(1); }
+
+        .hero-info {
+            position: absolute;
+            bottom: 8vh;
+            left: -10%;
+            max-width: 400px;
+            background: rgba(9, 9, 11, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 32px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+        }
+
+        .hero-info p {
+            font-size: 16px;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        .cta-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+            color: #000;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 16px 32px;
+            border-radius: 100px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+            box-shadow: 0 8px 24px rgba(255, 255, 255, 0.15);
+            border: none;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .cta-link:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(255, 255, 255, 0.3);
+            color: #000;
+            background: #f4f4f5;
+        }
+
+        /* Inventory - Horizontal Stagger */
+        .inventory-section {
+            padding: 160px 48px;
+            border-top: 1px solid var(--border);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 120px;
+        }
+
+        .section-title {
+            font-size: clamp(40px, 6vw, 80px);
+            font-weight: 300;
+        }
+
+        .section-sub {
+            max-width: 300px;
+            color: var(--text-muted);
+            font-size: 14px;
+            text-align: right;
+        }
+
+        .inventory-track {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 48px;
+            align-items: start;
+        }
+
+        .inv-item:nth-child(even) { margin-top: 120px; }
+
+        .inv-img {
+            width: 100%;
+            aspect-ratio: 4/5;
+            overflow: hidden;
+            margin-bottom: 24px;
+            border-radius: 4px;
+        }
+
+        .inv-img img {
+            width: 100%; height: 100%; object-fit: cover;
+            filter: grayscale(100%);
+            transition: filter 0.5s ease, transform 0.8s ease;
+        }
+
+        .inv-item:hover .inv-img img {
+            filter: grayscale(0%);
+            transform: scale(1.05);
+        }
+
+        .inv-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            border-top: 1px solid var(--border);
+            padding-top: 16px;
+        }
+
+        .inv-meta h3 { font-size: 20px; font-weight: 400; }
+        .inv-meta span { font-size: 12px; color: var(--text-muted); font-family: 'Space Grotesk', sans-serif; }
+
+        .inv-desc {
+            margin-top: 16px;
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        /* Interactive Packages */
+        .packages-section {
+            padding: 160px 48px;
+            background: #111113;
+            border-top: 1px solid var(--border);
+            position: relative;
+        }
+
+        .pkg-container {
+            display: flex;
+            min-height: 70vh;
+        }
+
+        .pkg-list-wrap {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .pkg-link {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(48px, 6vw, 96px);
+            color: var(--text-muted);
+            text-transform: uppercase;
+            line-height: 1;
+            padding: 24px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            cursor: pointer;
+            transition: color 0.4s ease, padding-left 0.4s ease;
+        }
+
+        .pkg-link:hover, .pkg-link.active {
+            color: var(--text-main);
+            padding-left: 48px;
+        }
+
+        .pkg-details-wrap {
+            width: 50%;
+            position: relative;
+        }
+
+        .pkg-detail {
+            position: absolute;
+            top: 50%;
+            left: 10%;
+            transform: translateY(-50%);
+            width: 80%;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.6s ease, visibility 0.6s ease;
+        }
+
+        .pkg-detail.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .pkg-img {
+            width: 100%;
+            aspect-ratio: 16/9;
+            overflow: hidden;
+            border-radius: 4px;
+            margin-bottom: 32px;
+        }
+
+        .pkg-img img { width: 100%; height: 100%; object-fit: cover; }
+
+        .pkg-content h4 { font-size: 24px; margin-bottom: 16px; font-weight: 400; }
+        .pkg-content ul {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+        .pkg-content li {
+            font-size: 14px;
+            color: var(--text-muted);
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        /* Reviews Ticker */
+        .reviews-section {
+            padding: 160px 0;
+            overflow: hidden;
+            border-top: 1px solid var(--border);
+        }
+
+        .ticker-wrap {
+            display: flex;
+            width: 300%;
+            animation: ticker 40s linear infinite;
+        }
+        
+        .ticker-wrap:hover { animation-play-state: paused; }
+
+        @keyframes ticker {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .review-item {
+            width: 500px;
+            padding: 0 48px;
+            flex-shrink: 0;
+            border-right: 1px solid var(--border);
+        }
+
+        .review-item p {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 24px;
+            line-height: 1.4;
+            margin-bottom: 24px;
+            font-weight: 300;
+        }
+
+        .reviewer { font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+
+        /* Footer */
+        .footer {
+            padding: 120px 48px 48px 48px;
+            border-top: 1px solid var(--border);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .ft-massive {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(80px, 12vw, 200px);
+            line-height: 0.8;
+            letter-spacing: -0.05em;
+            margin-bottom: 80px;
+        }
+
+        .ft-info {
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid var(--border);
+            padding-top: 24px;
+            font-size: 13px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        @media (max-width: 1024px) {
+            .hero { grid-template-columns: 1fr; padding-top: 160px; }
+            .hero-left { padding-bottom: 40px; }
+            .hero-right { display: none; }
+            .inventory-track { grid-template-columns: 1fr 1fr; }
+            .inv-item:nth-child(even) { margin-top: 0; }
+            .pkg-container { flex-direction: column; }
+            .pkg-list-wrap, .pkg-details-wrap { width: 100%; }
+            .pkg-detail { position: relative; top: 0; left: 0; transform: none; display: none; margin-top: 48px; width: 100%;}
+            .pkg-detail.active { display: block; }
+            .footer { grid-template-columns: 1fr; }
+        }
+    
+        /* Process Section */
+        .process-section {
+            padding: 160px 48px;
+            background: #111113;
+            border-top: 1px solid var(--border);
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 48px;
+            margin-top: 80px;
+        }
+
+        .process-step {
+            border-top: 2px solid var(--border);
+            padding-top: 32px;
+            transition: border-color 0.4s;
+        }
+
+        .process-step:hover { border-color: var(--text-main); }
+
+        .step-num {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 80px;
+            font-weight: 300;
+            color: var(--text-muted);
+            line-height: 1;
+            margin-bottom: 24px;
+        }
+
+        .process-step h4 { font-size: 24px; font-weight: 400; margin-bottom: 16px; }
+        .process-step p { color: var(--text-muted); font-size: 14px; }
+
+        /* Featured Case Study */
+        .featured-section {
+            position: relative;
+            padding: 200px 48px;
+            border-top: 1px solid var(--border);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+
+        .featured-bg {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 0;
+        }
+        
+        .featured-bg img { width: 100%; height: 100%; object-fit: cover; opacity: 0.4; filter: grayscale(50%); }
+
+        .featured-content {
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
+        }
+
+        .featured-badge {
+            font-family: 'Space Grotesk', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 12px;
+            color: var(--text-main);
+            margin-bottom: 24px;
+            display: block;
+        }
+
+        .featured-title { font-size: clamp(48px, 6vw, 80px); margin-bottom: 24px; }
+        .featured-desc { font-size: 16px; color: #d4d4d8; margin-bottom: 32px; }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .stat h5 { font-size: 32px; font-weight: 300; }
+        .stat span { font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+
+        @media (max-width: 1024px) {
+            .process-grid { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: 1fr; }
+        }
+
+    
+        .hero-title {
+            font-size: clamp(48px, 8vw, 120px);
+            font-weight: 400;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+            line-height: 1.05;
+        }
+
+        .hero-title span {
+            display: block;
+            margin-left: 0; /* Removed 10% */
+            color: var(--text-muted);
+        }
+
+        .hero-info {
+            position: relative; /* Removed absolute */
+            bottom: auto;
+            left: auto;
+            max-width: 400px;
+            background: transparent; /* Removed blur and bg */
+            backdrop-filter: none;
+            padding: 0;
+            border: none;
+            margin-top: 48px;
+        }
+        
+        .hero-img-container {
+            width: 100%; /* Changed from 80% */
+            aspect-ratio: 4/5; /* Changed from 3/4 */
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+    
+        /* Our Projects Section */
+        .projects-section {
+            padding: 160px 48px;
+            background: #111113;
+            border-top: 1px solid var(--border);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 48px;
+            margin-top: 80px;
+        }
+
+        .project-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            aspect-ratio: 16/9;
+            cursor: pointer;
+        }
+
+        .project-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .project-overlay {
+            position: absolute;
+            bottom: 0; left: 0; width: 100%;
+            padding: 48px;
+            background: linear-gradient(to top, rgba(9,9,11,0.9), transparent);
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.4s ease;
+        }
+
+        .project-card:hover .project-img {
+            transform: scale(1.05);
+        }
+
+        .project-card:hover .project-overlay {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .project-overlay h4 {
+            font-size: 32px;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+
+        .project-overlay span {
+            font-size: 14px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        
+        @media (max-width: 1024px) {
+            .projects-grid { grid-template-columns: 1fr; }
+        }
+
+    
+        /* =========================================================
+           SCATTERED PARALLAX OUR PROJECTS
+           ========================================================= */
+        .our-work-section {
+            position: relative;
+            background-color: transparent;
+            color: #F4F1EB;
+            width: 100%;
+            height: 450vh; /* creates scrolling room */
+            overflow: clip; 
+            clip-path: inset(0); /* allows sticky to work while hiding overflow */
+            z-index: 10;
+        }
+
+        .ow-sticky-container {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .ow-sticky-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(4rem, 10vw, 9rem);
+            font-weight: 300;
+            letter-spacing: -0.04em;
+            color: #ffffff;
+            text-transform: uppercase;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1.5s ease, transform 1.5s ease;
+        }
+
+        .ow-sticky-title.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .ow-gallery {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .ow-project {
+            position: absolute;
+            pointer-events: auto;
+            text-decoration: none;
+            display: block;
+            opacity: 0;
+            will-change: transform, opacity;
+            transition: opacity 0.8s ease;
+        }
+
+        .ow-project.visible {
+            opacity: 1;
+        }
+
+        .ow-project img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+            border-radius: 8px;
+        }
+
+        .ow-project:hover img {
+            transform: scale(1.03) !important;
+        }
+
+        .ow-label {
+            position: absolute;
+            bottom: -30px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+            white-space: nowrap;
+        }
+
+        .ow-project:hover .ow-label {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .ow-sticky-title { font-size: clamp(3rem, 12vw, 4rem); }
+            .our-work-section { height: 450vh; }
+        }
+
+    
+        /* =========================================================
+           NEW DYNAMIC HERO DESIGN
+           ========================================================= */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 160px 48px 80px 48px;
+            position: relative;
+            overflow: hidden;
+            background: radial-gradient(circle at 80% 50%, rgba(37, 99, 235, 0.05), transparent 50%);
+        }
+
+        .hero-content {
+            width: 50%;
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(60px, 8vw, 120px);
+            font-weight: 300;
+            line-height: 1.1;
+            margin-bottom: 32px;
+            letter-spacing: -0.04em;
+            color: var(--text-main);
+        }
+
+        .hero-text {
+            font-size: 18px;
+            color: var(--text-muted);
+            max-width: 85%;
+            margin-bottom: 48px;
+            line-height: 1.6;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+            color: #000;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 16px 36px;
+            border-radius: 100px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+            box-shadow: 0 8px 24px rgba(255, 255, 255, 0.15);
+            text-decoration: none;
+            border: none;
+            gap: 12px;
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(255, 255, 255, 0.3);
+            color: #000;
+            background: #f4f4f5;
+        }
+
+        .hero-gallery {
+            position: absolute;
+            top: 0;
+            right: 5%;
+            width: 40%;
+            height: 100vh;
+            display: flex;
+            gap: 24px;
+            overflow: hidden;
+            padding-top: 24px;
+            padding-bottom: 24px;
+            /* Fades top and bottom edges smoothly */
+            mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+            -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+            z-index: 1;
+        }
+
+        .marquee-col {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: visible;
+        }
+
+        .marquee-track {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            /* Prevent image from stretching/shrinking */
+            min-height: max-content;
+        }
+
+        .marquee-up .marquee-track {
+            animation: scroll-up 20s linear infinite;
+        }
+
+        .marquee-down .marquee-track {
+            animation: scroll-down 20s linear infinite;
+        }
+
+        @keyframes scroll-up {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-50%); }
+        }
+
+        @keyframes scroll-down {
+            0% { transform: translateY(-50%); }
+            100% { transform: translateY(0); }
+        }
+
+        .marquee-track img {
+            width: 100%;
+            /* fixed aspect ratio for all images */
+            aspect-ratio: 4/5;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transition: transform 0.4s ease, filter 0.4s ease;
+            display: block;
+        }
+
+        .marquee-track img:hover {
+            transform: scale(1.05);
+            filter: brightness(1.1);
+            position: relative;
+            z-index: 10;
+        }
+        
+        .hero-gallery:hover .marquee-track {
+            animation-play-state: paused;
+        }
+
+        @media (max-width: 1024px) {
+            .hero { flex-direction: column; padding-top: 140px; justify-content: flex-start; }
+            .hero-content { width: 100%; text-align: center; margin-bottom: 64px; }
+            .hero-text { max-width: 100%; margin: 0 auto 48px; }
+            .hero-gallery { position: relative; width: 100%; height: 50vh; right: 0; mask-image: none; -webkit-mask-image: none; padding: 0; overflow: hidden; transform: none;}
+            
+            .marquee-col { flex-direction: row; }
+            .marquee-track { flex-direction: row; gap: 16px; }
+            
+            .marquee-up .marquee-track { animation: scroll-left 20s linear infinite; }
+            .marquee-down .marquee-track { animation: scroll-right 20s linear infinite; }
+            
+            @keyframes scroll-left { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+            @keyframes scroll-right { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }
+            
+            .marquee-track img { height: 100%; aspect-ratio: 3/4; width: auto; max-width: 40vw; }
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 160px 48px;
+            background: #09090b;
+            border-top: 1px solid var(--border);
+        }
+
+        .faq-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            border-top: 1px solid var(--border);
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .faq-question {
+            padding: 32px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .faq-question:hover {
+            color: var(--text-main);
+        }
+
+        .faq-question h3 {
+            font-size: clamp(20px, 3vw, 32px);
+            font-weight: 300;
+            margin: 0;
+            padding-right: 24px;
+        }
+
+        .faq-icon {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 32px;
+            font-weight: 300;
+            color: var(--text-muted);
+            transition: transform 0.4s ease, color 0.3s;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+            color: var(--accent);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease;
+            opacity: 0;
+        }
+
+        .faq-item.active .faq-answer {
+            opacity: 1;
+        }
+
+        .faq-answer p {
+            padding-bottom: 32px;
+            color: var(--text-muted);
+            font-size: 16px;
+            line-height: 1.6;
+            max-width: 800px;
+        }
+        
+        @media (max-width: 1024px) {
+            .faq-section { padding: 100px 24px; }
+        }
+
+        /* Meet The Crew */
+        .crew-section {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 48px;
+            overflow: hidden;
+            border-top: 1px solid var(--border);
+        }
+
+        .crew-bg {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 0;
+            background: #000;
+        }
+
+        .crew-bg::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to right, rgba(9,9,11,0.95) 0%, rgba(9,9,11,0.4) 100%);
+            z-index: 2;
+        }
+
+        .cb-img {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 0.8s ease, transform 3s ease;
+            transform: scale(1.05);
+            z-index: 1;
+            filter: grayscale(80%);
+        }
+
+        .cb-img.active {
+            opacity: 0.6;
+            transform: scale(1);
+        }
+
+        .crew-content {
+            position: relative;
+            z-index: 3;
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .crew-heading {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--text-muted);
+            margin-bottom: 80px;
+        }
+
+        .crew-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .crew-item {
+            display: flex;
+            align-items: baseline;
+            gap: 48px;
+            cursor: pointer;
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            transition: transform 0.4s ease, padding-left 0.4s ease;
+        }
+
+        .crew-item:hover {
+            padding-left: 48px;
+            border-color: rgba(255,255,255,0.3);
+        }
+
+        .c-name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(48px, 6vw, 96px);
+            font-weight: 300;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            transition: color 0.4s;
+            line-height: 1;
+        }
+
+        .c-role {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+
+        .crew-item:hover .c-name { color: var(--text-main); }
+        .crew-item:hover .c-role { opacity: 1; transform: translateX(0); }
+
+        /* Next Level CTA */
+        .next-cta {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 48px;
+            background: #09090b;
+            border-top: 1px solid var(--border);
+            position: relative;
+        }
+
+        .n-cta-top {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            margin-top: 48px;
+        }
+
+        .n-cta-label {
+            font-family: 'Inter', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        .n-cta-line {
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        .n-cta-main {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+        }
+
+        .n-cta-link {
+            position: relative;
+            display: block;
+            overflow: hidden;
+        }
+
+        .n-cta-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(80px, 15vw, 250px);
+            font-weight: 700;
+            line-height: 0.9;
+            text-transform: uppercase;
+            letter-spacing: -0.04em;
+            color: var(--text-main);
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .n-cta-text.hover-text {
+            position: absolute;
+            top: 0; left: 0;
+            color: transparent;
+            -webkit-text-stroke: 2px var(--accent);
+            transform: translateY(100%);
+        }
+
+        .n-cta-link:hover .n-cta-text:not(.hover-text) {
+            transform: translateY(-100%);
+        }
+        
+        .n-cta-link:hover .n-cta-text.hover-text {
+            transform: translateY(0);
+        }
+
+        .cta-blue-btn {
+            display: inline-block;
+            background: #fff;
+            color: #000;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 20px 48px;
+            border-radius: 100px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+            box-shadow: 0 8px 32px rgba(255, 255, 255, 0.15);
+            text-decoration: none;
+            border: none;
+        }
+
+        .cta-blue-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(255, 255, 255, 0.3);
+            background: #f4f4f5;
+            color: #000;
+        }
+
+        .n-cta-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 48px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(24px, 4vw, 48px);
+            font-weight: 300;
+        }
+
+        .n-cta-phone {
+            transition: color 0.3s;
+        }
+        .n-cta-phone:hover {
+            color: var(--text-muted);
+        }
+
+        .n-cta-loc {
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 1024px) {
+            .n-cta-bottom { flex-direction: column; align-items: flex-start; gap: 16px; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav class="nav">
+        <div class="nav-logo">Charlotte<br>Audio<br>Rentals.</div>
+        <div class="nav-links">
+            <a href="#inventory">Inventory</a>
+            <a href="#packages">Packages</a>
+            <a href="#contact">Request Quote</a>
+        </div>
+    </nav>
+
+    
+    <header class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                Elevate<br>Every<br>Experience
+            </h1>
+            
+            <p class="hero-text">
+                Charlotte's premier destination for high-end audiovisual rentals and full-service event production. We deliver state-of-the-art sound, lighting, and video solutions that transform ordinary spaces into unforgettable moments.
+            </p>
+            
+            <a href="#inventory" class="hero-cta">EXPLORE OUR GEAR</a>
+        </div>
+
+        <div class="hero-gallery">
+            <div class="marquee-col marquee-up">
+                <div class="marquee-track">
+                    <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&q=80&w=800" alt="Concert Stage">
+                    <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80&w=800" alt="Event Lighting">
+                    <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&q=80&w=800" alt="Corporate Conference">
+                    <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&q=80&w=800" alt="Concert Stage">
+                    <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80&w=800" alt="Event Lighting">
+                    <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&q=80&w=800" alt="Corporate Conference">
+                </div>
+            </div>
+            <div class="marquee-col marquee-down">
+                <div class="marquee-track">
+                    <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&q=80&w=800" alt="Audio Setup">
+                    <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&q=80&w=800" alt="Stage Lighting">
+                    <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&q=80&w=800" alt="DJ Equipment">
+                    <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&q=80&w=800" alt="Audio Setup">
+                    <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&q=80&w=800" alt="Stage Lighting">
+                    <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&q=80&w=800" alt="DJ Equipment">
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <section class="inventory-section" id="inventory">
+        <div class="section-header">
+            <h2 class="section-title">Rental<br>Inventory</h2>
+            <p class="section-sub">High-end, reliable AV gear ready for pickup or full-service delivery and technical setup.</p>
+        </div>
+
+        <div class="inventory-track">
+            
+            <div class="inv-item">
+                <div class="inv-img"><img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&q=80&w=800" alt="Audio"></div>
+                <div class="inv-meta">
+                    <h3>Audio</h3>
+                    <span>01</span>
+                </div>
+                <p class="inv-desc">QSC K12.2 powered loudspeakers, subwoofers, line arrays, and wireless microphones.</p>
+            </div>
+
+            <div class="inv-item">
+                <div class="inv-img"><img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&q=80&w=800" alt="Lighting"></div>
+                <div class="inv-meta">
+                    <h3>Lighting</h3>
+                    <span>02</span>
+                </div>
+                <p class="inv-desc">Chauvet Freedom Par Hex-4s, moving heads, intelligent uplighting, and effects.</p>
+            </div>
+
+            <div class="inv-item">
+                <div class="inv-img"><img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&q=80&w=800" alt="LED Walls"></div>
+                <div class="inv-meta">
+                    <h3>LED Video</h3>
+                    <span>03</span>
+                </div>
+                <p class="inv-desc">16ft x 9ft 2.6mm pixel LED Walls, NovaPro 4K processors, TVs and Projectors.</p>
+            </div>
+
+            <div class="inv-item">
+                <div class="inv-img"><img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&q=80&w=800" alt="Staging"></div>
+                <div class="inv-meta">
+                    <h3>Staging</h3>
+                    <span>04</span>
+                </div>
+                <p class="inv-desc">SICO 1800 Series Portable Staging, pipe and drape, trussing, and generators.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="packages-section" id="packages">
+        <div class="pkg-container">
+            <div class="pkg-list-wrap">
+                <div class="pkg-link active" data-target="pkg-wedding">Wedding</div>
+                <div class="pkg-link" data-target="pkg-corporate">Corporate</div>
+                <div class="pkg-link" data-target="pkg-movie">Outdoor Movie</div>
+                <div class="pkg-link" data-target="pkg-dj">DJ Services</div>
+            </div>
+            <div class="pkg-details-wrap">
+                
+                <div class="pkg-detail active" id="pkg-wedding">
+                    <div class="pkg-img"><img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=1200" alt="Wedding"></div>
+                    <div class="pkg-content">
+                        <h4>Wedding Production</h4>
+                        <ul>
+                            <li>Premium Tops + Subwoofers</li>
+                            <li>Wireless Lav/Handheld Mics</li>
+                            <li>Dancefloor Lighting</li>
+                            <li>Setup & Soundcheck</li>
+                        </ul>
+                        <a href="#contact" class="cta-link">Request Package &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="pkg-detail" id="pkg-corporate">
+                    <div class="pkg-img"><img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&q=80&w=1200" alt="Corporate"></div>
+                    <div class="pkg-content">
+                        <h4>Corporate Summits</h4>
+                        <ul>
+                            <li>PA Systems for Speech</li>
+                            <li>Projectors / TV Monitors</li>
+                            <li>Wireless Panel Mics</li>
+                            <li>On-site Tech Support</li>
+                        </ul>
+                        <a href="#contact" class="cta-link">Request Package &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="pkg-detail" id="pkg-movie">
+                    <div class="pkg-img"><img src="https://images.unsplash.com/photo-1440404653325-ab127d49abc1?auto=format&fit=crop&q=80&w=1200" alt="Movie"></div>
+                    <div class="pkg-content">
+                        <h4>Outdoor Cinema</h4>
+                        <ul>
+                            <li>22ft Inflatable Screen</li>
+                            <li>High Lumen Projector</li>
+                            <li>Powerful Stereo Speakers</li>
+                            <li>Media Player Integration</li>
+                        </ul>
+                        <a href="#contact" class="cta-link">Request Package &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="pkg-detail" id="pkg-dj">
+                    <div class="pkg-img"><img src="https://images.unsplash.com/photo-1571266028243-3716f02d2d2e?auto=format&fit=crop&q=80&w=1200" alt="DJ"></div>
+                    <div class="pkg-content">
+                        <h4>Professional DJ Services</h4>
+                        <ul>
+                            <li>Corporate Event DJs</li>
+                            <li>Wedding DJs</li>
+                            <li>Private Party Sets</li>
+                            <li>Full Turntable/CDJ Setup</li>
+                        </ul>
+                        <a href="#contact" class="cta-link">Request Package &rarr;</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="process-section">
+        <div class="section-header" style="margin-bottom: 0;">
+            <h2 class="section-title">The<br>Process</h2>
+            <p class="section-sub">From concept to execution, we ensure flawless technical delivery for your event.</p>
+        </div>
+        <div class="process-grid">
+            <div class="process-step">
+                <div class="step-num">01</div>
+                <h4>Consultation & Quote</h4>
+                <p>We discuss your event size, venue constraints, and technical requirements to build a custom AV package tailored to your exact needs.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-num">02</div>
+                <h4>Delivery & Setup</h4>
+                <p>Our professional technicians deliver, construct staging, fly PA systems, and calibrate LED walls prior to event start.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-num">03</div>
+                <h4>Live Execution</h4>
+                <p>Optional on-site A2 and lighting technicians stay through your event to mix audio, trigger lighting cues, and guarantee perfection.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURED CASE STUDY -->
+    <section class="featured-section">
+        <div class="featured-bg">
+            <!-- Awesome dummy image for a corporate summit -->
+            <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80&w=2000" alt="Corporate Summit">
+        </div>
+        <div class="featured-content">
+            <span class="featured-badge">Featured Production</span>
+            <h2 class="featured-title">Global Tech Summit 2026</h2>
+            <p class="featured-desc">Full-service technical production including a massive 32ft curved LED wall, flown line arrays, and broadcast-level lighting for 1,500 attendees.</p>
+            <div class="stats-grid">
+                <div class="stat">
+                    <h5>1,500</h5>
+                    <span>Attendees</span>
+                </div>
+                <div class="stat">
+                    <h5>32ft</h5>
+                    <span>LED Video Wall</span>
+                </div>
+                <div class="stat">
+                    <h5>24</h5>
+                    <span>Moving Heads</span>
+                </div>
+                <div class="stat">
+                    <h5>0</h5>
+                    <span>Technical Issues</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="reviews-section">
+        <div class="ticker-wrap">
+            <div class="review-item">
+                <p>"We rented speakers and microphones for our wedding, they were great! We used two of their big speakers for an outdoor wedding and it was plenty loud. The pick up and drop off were also very easy."</p>
+                <div class="reviewer">Carolina Castillo / Wedding</div>
+            </div>
+            <div class="review-item">
+                <p>"If you are shopping for an audio team for your wedding, banquet, or conference, look no further. They are the best in the business. Pintu and his team have helped my annual conference."</p>
+                <div class="reviewer">John Skardon / Conference</div>
+            </div>
+            <div class="review-item">
+                <p>"Very professional and extremely easy to work with would def recommend! Professional with awesome service and products."</p>
+                <div class="reviewer">Andrew / SASpecial Projects</div>
+            </div>
+            <div class="review-item">
+                <p>"We rented speakers and microphones for our wedding, they were great! We used two of their big speakers for an outdoor wedding and it was plenty loud. The pick up and drop off were also very easy."</p>
+                <div class="reviewer">Carolina Castillo / Wedding</div>
+            </div>
+            <div class="review-item">
+                <p>"If you are shopping for an audio team for your wedding, banquet, or conference, look no further. They are the best in the business. Pintu and his team have helped my annual conference."</p>
+                <div class="reviewer">John Skardon / Conference</div>
+            </div>
+            <div class="review-item">
+                <p>"Very professional and extremely easy to work with would def recommend! Professional with awesome service and products."</p>
+                <div class="reviewer">Andrew / SASpecial Projects</div>
+            </div>
+        </div>
+    </section>
+
+    
+    <!-- SCATTERED PARALLAX OUR PROJECTS -->
+    <section class="our-work-section" id="projects">
+        <div class="ow-sticky-container">
+            <div class="ow-sticky-title" id="owTitle">OUR PROJECTS</div>
+        </div>
+        <div class="ow-gallery" id="owGallery">
+            <!-- Projects injected by JS -->
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="faq-section" id="faq">
+        <div class="section-header" style="max-width: 1000px; margin: 0 auto 80px auto;">
+            <h2 class="section-title">Common<br>Questions</h2>
+            <p class="section-sub">Everything you need to know about our rentals, full-service production, and logistics.</p>
+        </div>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Do you offer 'dry hire' rentals or just full production?</h3>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>We offer both! For AV professionals and DJs, you can dry hire gear from our Charlotte warehouse. For corporate events, weddings, and concerts, we highly recommend our full-service production where our technicians handle delivery, setup, operation, and strike.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>How far outside of Charlotte do you travel?</h3>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>While our warehouse is based in Charlotte, NC, our production team regularly travels across the Southeast, including Raleigh, Asheville, Charleston, Atlanta, and beyond for large-scale events.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Is setup and strike included in the package price?</h3>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>For our curated packages (Wedding, Corporate, Movie, DJ), standard delivery, setup, and strike within the Charlotte metro area are typically included. Complex rigs like flown line arrays or large LED walls will have itemized labor and logistics costs on your custom quote.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Do I need an on-site technician for my event?</h3>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>For basic setups (like a microphone and a pair of speakers), we will show you how to operate it during setup. However, for any event involving multiple microphones, a band, complex lighting cues, or video switching, an on-site A1 (Audio Engineer) or V1 (Video Director) is required to guarantee a flawless show.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MEET THE CREW SECTION -->
+    <section class="crew-section" id="crew">
+        <div class="crew-bg">
+            <img src="https://images.unsplash.com/photo-1574391671987-0b7849ef9892?auto=format&fit=crop&q=80&w=2000" class="cb-img active" id="bg-1" alt="Audio Engineer">
+            <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&q=80&w=2000" class="cb-img" id="bg-2" alt="Lighting Tech">
+            <img src="https://images.unsplash.com/photo-1520633842100-349f2b8744c8?auto=format&fit=crop&q=80&w=2000" class="cb-img" id="bg-3" alt="Video Director">
+        </div>
+        <div class="crew-content">
+            <h2 class="crew-heading">Meet The Crew</h2>
+            <ul class="crew-list">
+                <li class="crew-item" data-bg="bg-1">
+                    <span class="c-name">Alex M.</span>
+                    <span class="c-role">Lead A1 / Audio</span>
+                </li>
+                <li class="crew-item" data-bg="bg-2">
+                    <span class="c-name">Marcus T.</span>
+                    <span class="c-role">L1 / Lighting</span>
+                </li>
+                <li class="crew-item" data-bg="bg-3">
+                    <span class="c-name">Sarah J.</span>
+                    <span class="c-role">V1 / Video</span>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- NEXT LEVEL CTA SECTION -->
+    <section class="next-cta">
+        <div class="n-cta-top">
+            <span class="n-cta-label">Got a project?</span>
+            <span class="n-cta-line"></span>
+        </div>
+        <div class="n-cta-main" style="flex-direction: column; gap: 32px;">
+            <a href="mailto:info@charlotteaudiorentals.com" class="n-cta-link">
+                <div class="n-cta-text">LET'S WORK</div>
+                <div class="n-cta-text hover-text">LET'S WORK</div>
+            </a>
+            <a href="mailto:info@charlotteaudiorentals.com" class="cta-blue-btn">Start Your Project</a>
+        </div>
+        <div class="n-cta-bottom">
+            <a href="tel:9802677577" class="n-cta-phone">+1 980-267-7577</a>
+            <span class="n-cta-loc">Charlotte, NC</span>
+        </div>
+    </section>
+
+    <footer class="footer" id="contact">
+        <div style="grid-column: 1 / -1;">
+            <div class="ft-massive">Let's Work.</div>
+        </div>
+        <div class="ft-info">
+            <span>Charlotte, NC</span>
+            <span><a href="mailto:info@charlotteaudiorentals.com">info@charlotteaudiorentals.com</a></span>
+            <span><a href="tel:9802677577">980-267-7577</a></span>
+            <span>&copy; 2026 Charlotte Audio Rentals</span>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation Smart Hide & Hover Reveal
+        const nav = document.querySelector('.nav');
+        let lastScrollY = window.scrollY;
+
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+            
+            // Add scrolled background state if needed
+            if (currentScrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+
+            // Hide on scroll down, show on scroll up
+            if (currentScrollY > lastScrollY && currentScrollY > 100) {
+                // Scrolling down
+                nav.classList.add('nav-hidden');
+            } else if (currentScrollY < lastScrollY) {
+                // Scrolling up
+                nav.classList.remove('nav-hidden');
+            }
+            
+            lastScrollY = currentScrollY;
+        });
+
+        // Reveal header if mouse approaches the top of the screen
+        document.addEventListener('mousemove', (e) => {
+            if (e.clientY < 80) {
+                nav.classList.remove('nav-hidden');
+            }
+        });
+
+        // Crew Hover Logic
+        const crewItems = document.querySelectorAll('.crew-item');
+        const crewBgs = document.querySelectorAll('.cb-img');
+
+        crewItems.forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                const targetBg = item.getAttribute('data-bg');
+                
+                crewBgs.forEach(bg => {
+                    if (bg.id === targetBg) {
+                        bg.classList.add('active');
+                    } else {
+                        bg.classList.remove('active');
+                    }
+                });
+            });
+        });
+
+        // Package Hover Logic
+        const links = document.querySelectorAll('.pkg-link');
+        const details = document.querySelectorAll('.pkg-detail');
+
+        links.forEach(link => {
+            link.addEventListener('mouseenter', () => {
+                // Remove active from all
+                links.forEach(l => l.classList.remove('active'));
+                details.forEach(d => d.classList.remove('active'));
+
+                // Add active to current
+                link.classList.add('active');
+                const targetId = link.getAttribute('data-target');
+                document.getElementById(targetId).classList.add('active');
+            });
+        });
+    </script>
+
+    <script>
+        // Parallax Our Projects Logic
+        const workData = [
+            { img: 'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&q=80&w=800', title: 'Tech Conference', width: 300, top: 10, left: 10, speed: 0.8 },
+            { img: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=800', title: 'Music Festival', width: 400, top: 15, left: 55, speed: 1.2 },
+            { img: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&q=80&w=800', title: 'Gala Dinner', width: 350, top: 35, left: 15, speed: 0.9 },
+            { img: 'https://images.unsplash.com/photo-1519750157634-b6d493a0f77c?auto=format&fit=crop&q=80&w=800', title: 'Luxury Wedding', width: 280, top: 50, left: 70, speed: 1.5 },
+            { img: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&q=80&w=800', title: 'Live Concert', width: 450, top: 60, left: 10, speed: 1.3 },
+            { img: 'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&q=80&w=800', title: 'Private Party', width: 300, top: 75, left: 50, speed: 0.7 },
+            { img: 'https://images.unsplash.com/photo-1521360172605-ffc88523b1fc?auto=format&fit=crop&q=80&w=800', title: 'Corporate Summit', width: 380, top: 90, left: 20, speed: 1.1 },
+            { img: 'https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&q=80&w=800', title: 'Outdoor Cinema', width: 320, top: 105, left: 65, speed: 1.4 }
+        ];
+
+        const gallery = document.getElementById('owGallery');
+        const workSection = document.querySelector('.our-work-section');
+        const title = document.getElementById('owTitle');
+        let workElements = [];
+
+        if (gallery && workSection) {
+            workData.forEach((item, i) => {
+                const el = document.createElement('a');
+                el.href = '#';
+                el.className = 'ow-project';
+                el.style.width = item.width + 'px';
+                el.style.left = item.left + '%';
+                // initial top position based on data
+                el.style.top = item.top + '%';
+                
+                el.innerHTML = `
+                    <img src="${item.img}" alt="${item.title}" loading="lazy">
+                    <div class="ow-label">${item.title}</div>
+                `;
+                gallery.appendChild(el);
+                
+                workElements.push({
+                    el: el,
+                    speed: item.speed,
+                    baseTop: item.top
+                });
+            });
+
+            window.addEventListener('scroll', () => {
+                const rect = workSection.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+                
+                // If section is in view
+                if (rect.top < windowHeight && rect.bottom > 0) {
+                    
+                    // Reveal title
+                    if (rect.top < windowHeight * 0.5) {
+                        title.classList.add('revealed');
+                    } else {
+                        title.classList.remove('revealed');
+                    }
+
+                    // Calculate scroll progress through the section (0 to 1)
+                    let progress = (windowHeight - rect.top) / (rect.height + windowHeight);
+                    
+                    workElements.forEach(item => {
+                        // Reveal images as we scroll down
+                        if (progress > 0.1) {
+                            item.el.classList.add('visible');
+                        }
+                        
+                        // Parallax transform (move up)
+                        const yMove = -progress * windowHeight * 2 * item.speed;
+                        item.el.style.transform = `translateY(${yMove}px)`;
+                    });
+                }
+            });
+        }
+
+        // FAQ Accordion Logic
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                
+                // Close all other items
+                faqItems.forEach(faq => {
+                    faq.classList.remove('active');
+                    const answer = faq.querySelector('.faq-answer');
+                    if (answer) answer.style.maxHeight = null;
+                });
+                
+                // If it wasn't active, open it
+                if (!isActive) {
+                    item.classList.add('active');
+                    const answer = item.querySelector('.faq-answer');
+                    if (answer) answer.style.maxHeight = answer.scrollHeight + "px";
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

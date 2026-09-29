@@ -1,0 +1,3842 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Charlotte Audio Rentals — Premium audio visual and event production for weddings, corporate events, festivals, and more across Charlotte, NC.">
+    <title>Charlotte Audio Rentals | Premium Event Production</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* =========================================================
+           RESET
+           ========================================================= */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0a0a;
+            color: #F4F1EB;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+            transition: background-color 1.2s cubic-bezier(0.22, 1, 0.36, 1), color 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        body.theme-light {
+            background-color: #F4F1EB;
+            color: #131110;
+        }
+
+        body.theme-light .logo-placeholder {
+            color: rgba(19, 17, 16, 0.25);
+        }
+
+        body.theme-light .logo-placeholder:hover {
+            color: rgba(19, 17, 16, 0.8);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            display: block;
+        }
+
+        section+section {
+            margin-top: 150px;
+        }
+
+        /* =========================================================
+           FILM GRAIN OVERLAY
+           ========================================================= */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.35;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+            background-size: 200px 200px;
+        }
+
+        /* =========================================================
+           HERO CANVAS
+           ========================================================= */
+        .hero {
+            position: relative;
+            height: 100svh;
+            min-height: 700px;
+            max-height: 1100px;
+            overflow: visible;
+            /* allows cards to overflow bottom */
+            display: flex;
+            flex-direction: column;
+
+            /* Cinematic dark background with warm atmospheric glow */
+            background:
+                radial-gradient(ellipse 90% 60% at 50% -5%, rgba(201, 169, 110, 0.07) 0%, transparent 60%),
+                radial-gradient(ellipse 60% 50% at 50% 100%, rgba(0, 0, 0, 0.7) 0%, transparent 65%),
+                radial-gradient(ellipse 100% 100% at 50% 50%, #131110 0%, #0a0a0a 100%);
+        }
+
+        /* =========================================================
+           NAVIGATION
+           ========================================================= */
+        .nav {
+            position: relative;
+            z-index: 50;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5%;
+            height: 78px;
+            flex-shrink: 0;
+        }
+
+        .logo {
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            line-height: 1.3;
+        }
+
+        .logo small {
+            display: block;
+            font-weight: 300;
+            font-size: 0.54rem;
+            letter-spacing: 0.24em;
+            color: rgba(244, 241, 235, 0.38);
+            margin-top: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            font-size: 0.72rem;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            color: rgba(244, 241, 235, 0.5);
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #F4F1EB;
+        }
+
+        .nav-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            padding: 0.6rem 1.35rem;
+            border: 1px solid rgba(244, 241, 235, 0.15);
+            border-radius: 6px;
+            font-size: 0.68rem;
+            font-weight: 500;
+            letter-spacing: 0.07em;
+            color: rgba(244, 241, 235, 0.82);
+            transition: background 0.25s, color 0.25s, border-color 0.25s;
+            white-space: nowrap;
+        }
+
+        .nav-cta:hover {
+            background: #F4F1EB;
+            color: #0a0a0a;
+            border-color: #F4F1EB;
+        }
+
+        /* =========================================================
+           HERO CONTENT (STATIONARY BLOCK)
+           ========================================================= */
+        .hero-content {
+            position: relative;
+            z-index: 20;
+            text-align: center;
+            flex-shrink: 0;
+            padding: 2.5rem 5% 0;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.9rem;
+            font-size: 0.6rem;
+            font-weight: 500;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: rgba(244, 241, 235, 0.38);
+            margin-bottom: 1rem;
+        }
+
+        .eyebrow::before,
+        .eyebrow::after {
+            content: '';
+            display: block;
+            width: 28px;
+            height: 1px;
+            background: rgba(244, 241, 235, 0.12);
+        }
+
+        .hero-h1 {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(2rem, 3.8vw, 3.8rem);
+            font-weight: 500;
+            line-height: 1.05;
+            letter-spacing: 0.01em;
+            color: #F4F1EB;
+            margin-bottom: 1rem;
+        }
+
+        .hero-h1 em {
+            font-style: italic;
+            font-weight: 400;
+            color: #C9A96E;
+        }
+
+        .hero-tagline {
+            font-size: 0.85rem;
+            font-weight: 300;
+            line-height: 1.5;
+            color: rgba(244, 241, 235, 0.5);
+            max-width: 520px;
+            margin: 0 auto 0.35rem;
+        }
+
+        .hero-services {
+            font-size: 0.68rem;
+            font-weight: 400;
+            letter-spacing: 0.03em;
+            color: rgba(244, 241, 235, 0.2);
+            max-width: 500px;
+            margin: 0 auto 1.6rem;
+        }
+
+        .cta-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.85rem;
+        }
+
+        .btn-quote {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.65rem;
+            padding: 0.88rem 2.1rem;
+            background: #F4F1EB;
+            color: #0a0a0a;
+            border-radius: 7px;
+            font-size: 0.76rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            transition: background 0.3s, transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .btn-quote .arr {
+            display: inline-block;
+            transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .btn-quote:hover {
+            background: #C9A96E;
+            transform: scale(1.015);
+        }
+
+        .btn-quote:hover .arr {
+            transform: translateX(5px);
+        }
+
+        .phone-txt {
+            font-size: 0.66rem;
+            color: rgba(244, 241, 235, 0.3);
+            letter-spacing: 0.09em;
+        }
+
+        .phone-txt a {
+            color: rgba(244, 241, 235, 0.6);
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .phone-txt a:hover {
+            color: #C9A96E;
+        }
+
+        /* =========================================================
+           CARD CAROUSEL SYSTEM
+           Positioned absolutely in lower portion of hero.
+           Hero overflow:hidden clips card bottoms + sides.
+           ========================================================= */
+        .carousel-zone {
+            position: absolute;
+            left: 0;
+            right: 0;
+            /* Start cards lower so they never collide with text above */
+            top: 74%;
+            /* Extends well beyond hero bottom — clipped by hero overflow:hidden */
+            height: 600px;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* The stage is the reference frame for card absolute positions */
+        .cards-stage {
+            position: relative;
+            width: 100%;
+            flex: 1;
+            /* Cards are absolutely positioned with left:50% as center pivot */
+        }
+
+        /* =========================================================
+           EVENT CARD
+           ========================================================= */
+        .event-card {
+            position: absolute;
+            /* Cards pivot from horizontal center of stage */
+            left: 50%;
+            top: 0;
+            width: 300px;
+            height: 400px;
+            margin-left: -150px;
+            /* half of 300px */
+
+            border-radius: 22px;
+            overflow: hidden;
+            cursor: pointer;
+
+            /* Each card slot's transform set via data-slot CSS */
+            transition:
+                transform 1.15s cubic-bezier(0.22, 1, 0.36, 1),
+                opacity 1.15s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 1.15s ease;
+            will-change: transform, opacity;
+
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .event-card img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 7s ease;
+            pointer-events: none;
+            user-select: none;
+        }
+
+        /* Bottom gradient for text legibility */
+        .event-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            background: linear-gradient(to bottom,
+                    transparent 25%,
+                    rgba(0, 0, 0, 0.25) 55%,
+                    rgba(0, 0, 0, 0.85) 100%);
+            z-index: 1;
+        }
+
+        .card-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 2;
+            padding: 1.5rem 1.6rem 1.7rem;
+        }
+
+        .c-num {
+            font-size: 0.55rem;
+            font-weight: 500;
+            letter-spacing: 0.22em;
+            color: rgba(244, 241, 235, 0.38);
+            margin-bottom: 0.35rem;
+        }
+
+        .card-name {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.55rem;
+            font-weight: 400;
+            line-height: 1.05;
+            color: #F4F1EB;
+            margin-bottom: 0.28rem;
+        }
+
+        .c-sub {
+            font-size: 0.62rem;
+            font-weight: 300;
+            color: rgba(244, 241, 235, 0.45);
+            letter-spacing: 0.03em;
+        }
+
+        /* =========================================================
+           SLOT TRANSFORMS
+           Cards are arranged in a fan: rotateZ + translateX + translateY
+           Center is dominant. Sides tilt outward and drop slightly.
+           ========================================================= */
+
+        /* slot -1: recycle (off-screen left, no transition) */
+        [data-slot="-1"] {
+            transform: translateX(-1000px) translateY(70px) rotate(-12deg) scale(0.5);
+            opacity: 0;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* slot 0: far left — almost hidden, heavily tilted */
+        [data-slot="0"] {
+            transform: translateX(-730px) translateY(58px) rotate(-9deg) scale(0.60);
+            opacity: 0.0;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* slot 1: outer left */
+        [data-slot="1"] {
+            transform: translateX(-500px) translateY(42px) rotate(-6.5deg) scale(0.70);
+            opacity: 0.28;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        /* slot 2: adjacent left */
+        [data-slot="2"] {
+            transform: translateX(-278px) translateY(22px) rotate(-3.5deg) scale(0.845);
+            opacity: 0.68;
+            z-index: 5;
+        }
+
+        /* slot 3: CENTER — upright, full size, dominant */
+        [data-slot="3"] {
+            transform: translateX(0px) translateY(0px) rotate(0deg) scale(1);
+            opacity: 1;
+            z-index: 10;
+            border-color: rgba(201, 169, 110, 0.14);
+            box-shadow: 0 24px 72px rgba(0, 0, 0, 0.72), 0 0 0 1px rgba(201, 169, 110, 0.1);
+        }
+
+        /* slot 4: adjacent right */
+        [data-slot="4"] {
+            transform: translateX(278px) translateY(22px) rotate(3.5deg) scale(0.845);
+            opacity: 0.68;
+            z-index: 5;
+        }
+
+        /* slot 5: outer right */
+        [data-slot="5"] {
+            transform: translateX(500px) translateY(42px) rotate(6.5deg) scale(0.70);
+            opacity: 0.28;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        /* slot 6: far right — almost hidden, heavily tilted */
+        [data-slot="6"] {
+            transform: translateX(730px) translateY(58px) rotate(9deg) scale(0.60);
+            opacity: 0.0;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* slot 7: recycle (off-screen right, no transition) */
+        [data-slot="7"] {
+            transform: translateX(1000px) translateY(70px) rotate(12deg) scale(0.5);
+            opacity: 0;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Center card subtle image zoom on hover */
+        [data-slot="3"]:hover img {
+            transform: scale(1.04);
+        }
+
+
+
+        /* =========================================================
+           SCROLL HINT
+           ========================================================= */
+        .scroll-hint {
+            position: absolute;
+            left: 5%;
+            bottom: 2.5rem;
+            z-index: 30;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            opacity: 0.25;
+            font-size: 0.5rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+        }
+
+        .scroll-hint::after {
+            content: '';
+            display: block;
+            width: 1px;
+            height: 32px;
+            background: linear-gradient(to bottom, #F4F1EB, transparent);
+        }
+
+        /* =========================================================
+           REDUCED MOTION
+           ========================================================= */
+        @media (prefers-reduced-motion: reduce) {
+
+            .event-card,
+            .p-dot {
+                transition: none !important;
+            }
+        }
+
+        /* =========================================================
+           RESPONSIVE — TABLET (768–1199)
+           ========================================================= */
+        @media (max-width: 1199px) {
+            .event-card {
+                width: 255px;
+                height: 415px;
+                margin-left: -127px;
+            }
+
+            [data-slot="1"] {
+                transform: translateX(-430px) translateY(38px) rotate(-6deg) scale(0.70);
+            }
+
+            [data-slot="2"] {
+                transform: translateX(-240px) translateY(20px) rotate(-3deg) scale(0.84);
+            }
+
+            [data-slot="4"] {
+                transform: translateX(240px) translateY(20px) rotate(3deg) scale(0.84);
+            }
+
+            [data-slot="5"] {
+                transform: translateX(430px) translateY(38px) rotate(6deg) scale(0.70);
+            }
+
+            [data-slot="0"] {
+                transform: translateX(-630px) translateY(55px) rotate(-8.5deg) scale(0.58);
+            }
+
+            [data-slot="6"] {
+                transform: translateX(630px) translateY(55px) rotate(8.5deg) scale(0.58);
+            }
+
+            [data-slot="-1"] {
+                transform: translateX(-850px) translateY(70px) rotate(-11deg) scale(0.46);
+            }
+
+            [data-slot="7"] {
+                transform: translateX(850px) translateY(70px) rotate(11deg) scale(0.46);
+            }
+        }
+
+        /* =========================================================
+           RESPONSIVE — MOBILE (< 768)
+           ========================================================= */
+        @media (max-width: 767px) {
+
+            .nav-links,
+            .nav-cta {
+                display: none;
+            }
+
+            .hero-content {
+                padding: 2rem 6% 0;
+            }
+
+            .hero-services {
+                display: none;
+            }
+
+            .hero-tagline {
+                font-size: 0.88rem;
+            }
+
+            .carousel-zone {
+                top: 56%;
+            }
+
+            /* Mobile cards: wider, no Z rotation for legibility */
+            .event-card {
+                width: 72vw;
+                max-width: 300px;
+                height: 96vw;
+                max-height: 390px;
+                margin-left: calc(-36vw);
+            }
+
+            [data-slot="-1"] {
+                transform: translateX(-160vw) scale(0.5);
+                opacity: 0;
+            }
+
+            [data-slot="0"] {
+                transform: translateX(-110vw) scale(0.58);
+                opacity: 0;
+            }
+
+            [data-slot="1"] {
+                transform: translateX(-80vw) scale(0.65);
+                opacity: 0.18;
+            }
+
+            [data-slot="2"] {
+                transform: translateX(-40vw) scale(0.82);
+                opacity: 0.60;
+            }
+
+            [data-slot="3"] {
+                transform: translateX(0) scale(1);
+                opacity: 1;
+            }
+
+            [data-slot="4"] {
+                transform: translateX(40vw) scale(0.82);
+                opacity: 0.60;
+            }
+
+            [data-slot="5"] {
+                transform: translateX(80vw) scale(0.65);
+                opacity: 0.18;
+            }
+
+            [data-slot="6"] {
+                transform: translateX(110vw) scale(0.58);
+                opacity: 0;
+            }
+
+            [data-slot="7"] {
+                transform: translateX(160vw) scale(0.5);
+                opacity: 0;
+            }
+        }
+
+        /* =========================================================
+           TRUSTED BY SECTION
+           ========================================================= */
+        .trusted-section {
+            margin-top: 250px;
+            padding: 0 5% 2rem;
+            text-align: center;
+            background-color: #0a0a0a;
+            position: relative;
+            z-index: 5;
+            /* Lower than carousel zone so cards overlap on top */
+        }
+
+        /* Subtle glow to blend with hero */
+        .trusted-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 1000px;
+            height: 400px;
+            background: radial-gradient(ellipse at top, rgba(201, 169, 110, 0.04), transparent 70%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .trusted-eyebrow {
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.3em;
+            color: #C9A96E;
+            /* Match the gold accent */
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .trusted-heading {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(1.2rem, 1.8vw, 1.8rem);
+            font-weight: 300;
+            line-height: 1.4;
+            color: rgba(244, 241, 235, 0.6);
+            margin-bottom: 4rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .trusted-heading strong {
+            color: #F4F1EB;
+            font-weight: 400;
+        }
+
+        .trusted-marquee {
+            overflow: hidden;
+            white-space: nowrap;
+            width: 100%;
+            position: relative;
+            padding: 2rem 0;
+            mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+        }
+
+        .marquee-track {
+            display: inline-flex;
+            width: max-content;
+            animation: scroll-marquee 30s linear infinite;
+        }
+
+        .marquee-track:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes scroll-marquee {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .logo-placeholder {
+            margin: 0 4rem;
+            color: rgba(244, 241, 235, 0.25);
+            font-size: 0.85rem;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            transition: color 0.4s ease, transform 0.4s ease;
+            cursor: default;
+        }
+
+        .logo-placeholder:hover {
+            color: rgba(244, 241, 235, 0.8);
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 767px) {
+            .logo-placeholder {
+                margin: 0 2rem;
+            }
+        }
+
+        .section-transition {
+            height: 350px;
+            background: linear-gradient(to bottom, #0a0a0a 0%, #F4F1EB 100%);
+            width: 100%;
+            margin-top: -1px;
+            /* prevent rendering gaps */
+            margin-bottom: -1px;
+            /* prevent rendering gaps */
+        }
+
+        /* =========================================================
+           EVENT DISCOVERY SECTION
+           ========================================================= */
+        .event-discovery {
+            background-color: transparent;
+            color: inherit;
+            padding: 2rem 0 8rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .theme-trigger {
+            position: absolute;
+            top: 250px;
+            width: 1px;
+            height: 1px;
+            pointer-events: none;
+        }
+
+        .discovery-intro {
+            padding: 0 5%;
+            margin-bottom: 4rem;
+        }
+
+        .d-eyebrow {
+            display: block;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            color: #F4F1EB;
+            transition: color 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .d-heading {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(3rem, 6vw, 5.5rem);
+            font-weight: 500;
+            line-height: 0.95;
+            margin-bottom: 1.5rem;
+            color: #F4F1EB;
+            transition: color 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .d-desc {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.1rem;
+            line-height: 1.5;
+            max-width: 500px;
+            color: rgba(244, 241, 235, 0.8);
+            transition: color 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        body.theme-light .d-eyebrow,
+        body.theme-light .d-heading {
+            color: #131110;
+        }
+
+        body.theme-light .d-desc {
+            color: rgba(19, 17, 16, 0.8);
+        }
+
+        .discovery-gallery {
+            display: flex;
+            width: 92vw;
+            max-width: 1600px;
+            height: 620px;
+            margin: 0 auto;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #131110;
+        }
+
+        .d-panel {
+            position: relative;
+            flex: 1;
+            /* Inactive width */
+            overflow: hidden;
+            transition: flex 800ms cubic-bezier(0.22, 1, 0.36, 1);
+            cursor: pointer;
+            border-right: 1px solid rgba(244, 241, 235, 0.08);
+        }
+
+        .d-panel:last-child {
+            border-right: none;
+        }
+
+        .d-panel.active {
+            flex: 0 0 42%;
+            /* Active width */
+            cursor: default;
+        }
+
+        .d-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 800ms cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .d-panel.active .d-bg {
+            transform: scale(1.05);
+        }
+
+        .d-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            transition: background 800ms cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .d-panel.active .d-overlay {
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.1) 50%, transparent 100%);
+        }
+
+        .d-content {
+            position: absolute;
+            inset: 0;
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            color: #F4F1EB;
+            pointer-events: none;
+        }
+
+        .d-num {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+            opacity: 0.6;
+        }
+
+        .d-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            white-space: nowrap;
+            transition: all 400ms ease;
+            transform-origin: bottom left;
+            margin: 0;
+            opacity: 0.6;
+        }
+
+        .d-panel.active .d-title {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(2.5rem, 4vw, 4rem);
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            writing-mode: horizontal-tb;
+            transform: none;
+            margin-bottom: 1rem;
+            opacity: 1;
+        }
+
+        .d-details {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 400ms ease, transform 400ms ease;
+            pointer-events: none;
+            /* enable when active */
+        }
+
+        .d-panel.active .d-details {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 200ms;
+            pointer-events: auto;
+        }
+
+        .d-text {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: rgba(244, 241, 235, 0.85);
+        }
+
+        .d-cta {
+            display: inline-block;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #C9A96E;
+            transition: color 0.3s ease;
+            pointer-events: auto;
+        }
+
+        .d-cta .arr {
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .d-cta:hover {
+            color: #F4F1EB;
+        }
+
+        .d-cta:hover .arr {
+            transform: translateX(4px);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            .d-panel,
+            .d-bg,
+            .d-overlay,
+            .d-title,
+            .d-details {
+                transition: none !important;
+            }
+        }
+
+        @media (max-width: 1199px) {
+            .d-panel.active {
+                flex: 0 0 50%;
+            }
+
+            .discovery-gallery {
+                height: 500px;
+                width: 95vw;
+            }
+
+            .d-content {
+                padding: 1.5rem;
+            }
+
+            .d-title {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .event-discovery {
+                padding: 5rem 0;
+            }
+
+            .d-desc {
+                margin-bottom: 2rem;
+            }
+
+            .discovery-gallery {
+                width: 100vw;
+                border-radius: 0;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                scrollbar-width: none;
+                height: 480px;
+            }
+
+            .discovery-gallery::-webkit-scrollbar {
+                display: none;
+            }
+
+            .d-panel {
+                flex: 0 0 15vw;
+                scroll-snap-align: center;
+            }
+
+            .d-panel.active {
+                flex: 0 0 75vw;
+            }
+
+            .d-panel.active .d-title {
+                font-size: 2.2rem;
+            }
+
+            .d-text {
+                font-size: 0.95rem;
+                margin-bottom: 1rem;
+            }
+        }
+
+        /* =========================================================
+           SECTION 04: OUR APPROACH
+           ========================================================= */
+        .approach-section {
+            background-color: transparent;
+            color: #131110;
+            padding: 8rem 0 4rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .approach-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        .approach-layout {
+            display: grid;
+            grid-template-columns: 5fr 7fr;
+            gap: 6rem;
+            position: relative;
+        }
+
+        /* LEFT SIDE - STICKY */
+        .approach-sticky {
+            position: sticky;
+            top: 15vh;
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .a-eyebrow {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.25em;
+            color: rgba(19, 17, 16, 0.4);
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 1.5rem;
+        }
+
+        .a-heading {
+            font-size: clamp(3rem, 6vw, 5.5rem);
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            line-height: 1.05;
+            letter-spacing: -0.02em;
+            margin-bottom: 2rem;
+        }
+
+        .a-desc {
+            font-size: clamp(1rem, 1.2vw, 1.2rem);
+            font-weight: 300;
+            color: rgba(19, 17, 16, 0.6);
+            line-height: 1.6;
+            margin-bottom: 3rem;
+            max-width: 450px;
+        }
+
+        .a-visuals {
+            position: relative;
+            flex: 1;
+            width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .a-image {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transform: scale(1.05);
+            transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .a-image.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* RIGHT SIDE - SCROLLING STAGES */
+        .approach-scroll {
+            display: flex;
+            flex-direction: column;
+            padding-bottom: 20vh;
+            /* space after last item */
+        }
+
+        .a-stage {
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            opacity: 0.25;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .a-stage.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .a-stage-num {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #C9A96E;
+            margin-bottom: 1rem;
+        }
+
+        .a-stage-title {
+            font-size: clamp(2rem, 3.5vw, 3.5rem);
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            letter-spacing: -0.01em;
+            color: #131110;
+            margin-bottom: 1.5rem;
+        }
+
+        .a-stage-desc {
+            font-size: clamp(1rem, 1.2vw, 1.2rem);
+            line-height: 1.6;
+            color: rgba(19, 17, 16, 0.7);
+            max-width: 500px;
+            font-weight: 300;
+        }
+
+        /* Mobile Image (hidden on desktop) */
+        .a-stage-img-mobile {
+            display: none;
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+
+        .approach-footer {
+            text-align: center;
+            padding: 6rem 0;
+            font-size: 0.9rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: rgba(19, 17, 16, 0.6);
+        }
+
+        .approach-footer .down-arrow {
+            display: block;
+            margin-top: 1.5rem;
+            font-size: 1.5rem;
+            color: #131110;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-10px);
+            }
+
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        @media (max-width: 1023px) {
+            .approach-layout {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .approach-sticky {
+                position: relative;
+                top: 0;
+                height: auto;
+                margin-bottom: 3rem;
+            }
+
+            .a-visuals {
+                display: none;
+                /* Hide sticky visuals on mobile */
+            }
+
+            .a-stage {
+                min-height: auto;
+                margin-bottom: 6rem;
+                opacity: 1;
+                /* Always visible on mobile */
+                transform: none;
+            }
+
+            .a-stage-img-mobile {
+                display: block;
+                /* Show inline image on mobile */
+            }
+        }
+
+        /* =========================================================
+           SECTION 05: FEATURED EXPERIENCES
+           ========================================================= */
+        .experiences-section {
+            background-color: #0a0a0a;
+            color: #F4F1EB;
+            padding: 8rem 0;
+            position: relative;
+            z-index: 10;
+        }
+
+        .experiences-container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        .exp-intro {
+            margin-bottom: 5rem;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        .exp-intro.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .exp-eyebrow {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.25em;
+            color: rgba(244, 241, 235, 0.5);
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 1.5rem;
+        }
+
+        .exp-heading {
+            font-size: clamp(3rem, 6vw, 5.5rem);
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            line-height: 1.05;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.5rem;
+        }
+
+        .exp-desc {
+            font-size: clamp(1.1rem, 1.5vw, 1.3rem);
+            font-weight: 300;
+            color: rgba(244, 241, 235, 0.7);
+            line-height: 1.5;
+            max-width: 600px;
+        }
+
+        .exp-grid {
+            display: grid;
+            grid-template-columns: 7fr 3fr;
+            gap: 2rem;
+            min-height: 70vh;
+        }
+
+        /* MAIN DISPLAY */
+        .exp-main {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #131110;
+            display: flex;
+            align-items: flex-end;
+            padding: 3rem;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease 0.2s, transform 1s ease 0.2s;
+            cursor: pointer;
+        }
+
+        .exp-main.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .exp-main-img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.8s ease;
+        }
+
+        .exp-main:hover .exp-main-img {
+            transform: scale(1.03);
+        }
+
+        .exp-main-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(10, 10, 10, 0.8) 0%, rgba(10, 10, 10, 0) 50%);
+            pointer-events: none;
+        }
+
+        .exp-main-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            transition: opacity 0.4s ease;
+        }
+
+        .exp-main-num {
+            font-size: 0.9rem;
+            color: #C9A96E;
+            margin-bottom: 1rem;
+            letter-spacing: 0.1em;
+        }
+
+        .exp-main-title {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 300;
+            letter-spacing: -0.01em;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .exp-main-cat {
+            font-size: 1rem;
+            color: rgba(244, 241, 235, 0.7);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .exp-main-cta {
+            display: inline-flex;
+            align-items: center;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            color: #F4F1EB;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+
+        .exp-main-cta .arr {
+            margin-left: 8px;
+            transition: transform 0.4s ease;
+        }
+
+        .exp-main:hover .exp-main-cta .arr {
+            transform: translateX(6px);
+        }
+
+        /* SECONDARY LIST */
+        .exp-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease 0.4s, transform 1s ease 0.4s;
+        }
+
+        .exp-list.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .exp-item {
+            flex: 1;
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #131110;
+            cursor: pointer;
+            display: flex;
+            align-items: flex-end;
+            padding: 1.5rem;
+            border: 1px solid rgba(244, 241, 235, 0.05);
+        }
+
+        .exp-item-img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.5;
+            transition: opacity 0.6s ease, transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+            filter: grayscale(40%);
+        }
+
+        .exp-item:hover .exp-item-img {
+            opacity: 0.8;
+            transform: scale(1.05);
+            filter: grayscale(0%);
+        }
+
+        .exp-item-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(10, 10, 10, 0.9) 0%, rgba(10, 10, 10, 0.2) 100%);
+            pointer-events: none;
+        }
+
+        .exp-item-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .exp-item-num {
+            font-size: 0.75rem;
+            color: #C9A96E;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.1em;
+        }
+
+        .exp-item-cat {
+            font-size: 1.2rem;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        /* Swapping animation class */
+        .is-swapping .exp-main-img {
+            opacity: 0;
+        }
+
+        .is-swapping .exp-main-content {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        @media (max-width: 1023px) {
+            .exp-grid {
+                display: flex;
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .exp-main {
+                height: 60vh;
+                padding: 2rem;
+            }
+
+            .exp-main-title {
+                font-size: clamp(1.8rem, 5vw, 2.5rem);
+            }
+
+            .exp-list {
+                flex-direction: row;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                scrollbar-width: none;
+                padding-bottom: 1rem;
+            }
+
+            .exp-list::-webkit-scrollbar {
+                display: none;
+            }
+
+            .exp-item {
+                flex: 0 0 70vw;
+                height: 250px;
+                scroll-snap-align: center;
+            }
+        }
+        
+        /* =========================================================
+           SECTION 06: PACKAGES (FIND THE RIGHT SETUP)
+           ========================================================= */
+        .packages-section {
+            background-color: transparent;
+            color: #131110;
+            padding: 8rem 0;
+            position: relative;
+            z-index: 10;
+            border-top: 1px solid rgba(19, 17, 16, 0.05);
+        }
+
+        .packages-container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        .pkg-intro {
+            margin-bottom: 5rem;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        .pkg-intro.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .pkg-eyebrow {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.25em;
+            color: rgba(19, 17, 16, 0.5);
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 1.5rem;
+        }
+
+        .pkg-heading {
+            font-size: clamp(3rem, 6vw, 5.5rem);
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            line-height: 1.05;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.5rem;
+            color: #131110;
+        }
+
+        .pkg-desc {
+            font-size: clamp(1.1rem, 1.5vw, 1.3rem);
+            font-weight: 300;
+            color: rgba(19, 17, 16, 0.7);
+            line-height: 1.5;
+            max-width: 600px;
+        }
+
+        .pkg-layout {
+            display: flex;
+            flex-direction: column;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease 0.2s, transform 1s ease 0.2s;
+        }
+
+        .pkg-layout.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* NAVIGATION / SELECTOR */
+        .pkg-selector {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin-bottom: 5rem;
+            border-bottom: 1px solid rgba(19, 17, 16, 0.1);
+            padding-bottom: 0;
+        }
+
+        .pkg-btn {
+            background: none;
+            border: none;
+            padding: 0 0 1.5rem 0;
+            text-align: center;
+            cursor: pointer;
+            position: relative;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            color: rgba(19, 17, 16, 0.4);
+            transition: color 0.4s ease;
+            text-transform: uppercase;
+        }
+        
+        .pkg-btn::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #131110;
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+            transform-origin: center;
+        }
+
+        .pkg-btn:hover {
+            color: rgba(19, 17, 16, 0.8);
+        }
+
+        .pkg-btn.active {
+            color: #131110;
+        }
+
+        .pkg-btn.active::after {
+            transform: scaleX(1);
+        }
+
+        /* 3-COLUMN CONTENT */
+        .pkg-content {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .pkg-content.is-swapping {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .pkg-item {
+            padding: 3rem;
+            border: 1px solid rgba(19, 17, 16, 0.1);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            background: transparent;
+            transition: transform 0.4s ease, border-color 0.4s ease, background 0.4s ease;
+        }
+
+        .pkg-item:hover {
+            border-color: rgba(19, 17, 16, 0.25);
+            transform: translateY(-4px);
+        }
+
+        .pkg-item.popular {
+            background: rgba(19, 17, 16, 0.02);
+            border-color: rgba(19, 17, 16, 0.15);
+        }
+
+        .pkg-item-num {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            color: rgba(19, 17, 16, 0.4);
+            margin-bottom: 2rem;
+            letter-spacing: 0.1em;
+        }
+
+        .pkg-item-title-wrapper {
+            margin-bottom: 1rem;
+        }
+
+        .pkg-item-title {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(1.5rem, 2vw, 2rem);
+            font-weight: 400;
+            color: #131110;
+            text-transform: uppercase;
+        }
+
+        .pkg-badge {
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            color: #C9A96E;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-top: 0.5rem;
+        }
+
+        .pkg-item-desc {
+            font-size: 1rem;
+            color: rgba(19, 17, 16, 0.7);
+            line-height: 1.5;
+            margin-bottom: 2rem;
+        }
+
+        .pkg-divider {
+            height: 1px;
+            background: rgba(19, 17, 16, 0.1);
+            margin: 0 0 2rem 0;
+            width: 100%;
+        }
+
+        .pkg-item-features {
+            font-size: 0.95rem;
+            color: rgba(19, 17, 16, 0.8);
+            line-height: 1.6;
+            margin-bottom: 3rem;
+            flex-grow: 1; /* Pushes CTA to the bottom */
+        }
+
+        .pkg-item-features ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .pkg-item-features li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .pkg-item-features li::before {
+            content: '—';
+            position: absolute;
+            left: 0;
+            color: rgba(19, 17, 16, 0.4);
+        }
+
+        .pkg-item-cta {
+            display: inline-flex;
+            align-items: center;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            color: #131110;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-top: 1px solid rgba(19, 17, 16, 0.1);
+            padding-top: 1.5rem;
+        }
+
+        .pkg-item-cta .arr {
+            margin-left: 8px;
+            transition: transform 0.4s ease;
+        }
+
+        .pkg-item-cta:hover .arr {
+            transform: translateX(6px);
+        }
+
+        .pkg-footer {
+            margin-top: 6rem;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease 0.4s, transform 1s ease 0.4s;
+        }
+
+        .pkg-footer.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .pkg-footer-text {
+            font-size: 0.9rem;
+            color: rgba(19, 17, 16, 0.6);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .pkg-footer-cta {
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            color: #131110;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .pkg-footer-cta .arr {
+            margin-left: 12px;
+            color: #C9A96E;
+            transition: transform 0.4s ease;
+        }
+
+        .pkg-footer-cta:hover .arr {
+            transform: translateX(8px);
+        }
+
+        @media (max-width: 1023px) {
+            .pkg-selector {
+                justify-content: flex-start;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                scrollbar-width: none;
+                gap: 2rem;
+            }
+            .pkg-selector::-webkit-scrollbar { display: none; }
+
+            .pkg-btn {
+                flex: 0 0 auto;
+                scroll-snap-align: start;
+                white-space: nowrap;
+            }
+
+            .pkg-content {
+                display: flex;
+                flex-direction: row;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                scrollbar-width: none;
+                padding-bottom: 1rem;
+            }
+            .pkg-content::-webkit-scrollbar { display: none; }
+
+            .pkg-item {
+                flex: 0 0 85vw;
+                scroll-snap-align: center;
+                height: auto;
+            }
+        }
+    
+        /* =========================================================
+           SECTION 07: OUR WORK (PARALLAX FIELD)
+           ========================================================= */
+        .our-work-section {
+            position: relative;
+            background-color: transparent;
+            color: #F4F1EB;
+            width: 100%;
+            height: 400vh;
+            overflow: clip; clip-path: inset(0); /* allows sticky to work while hiding overflow */
+            z-index: 10;
+        }
+
+        .ow-sticky-container {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .ow-sticky-title {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(4rem, 10vw, 9rem);
+            font-weight: 300;
+            letter-spacing: -0.04em;
+            color: #F4F1EB;
+            text-transform: uppercase;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1.5s ease, transform 1.5s ease;
+        }
+
+        .ow-sticky-title.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .ow-intro-label {
+            position: absolute;
+            top: 20%;
+            left: 5%;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.25em;
+            color: rgba(244, 241, 235, 0.5);
+            text-transform: uppercase;
+        }
+
+        .ow-gallery {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .ow-project {
+            position: absolute;
+            pointer-events: auto;
+            text-decoration: none;
+            display: block;
+            opacity: 0;
+            will-change: transform, opacity;
+            transition: opacity 0.8s ease;
+        }
+
+        .ow-project.visible {
+            opacity: 1;
+        }
+
+        .ow-project img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        .ow-project:hover img {
+            transform: scale(1.03) !important;
+        }
+
+        .ow-label {
+            position: absolute;
+            bottom: -30px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            color: #F4F1EB;
+            text-transform: uppercase;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+            white-space: nowrap;
+        }
+
+        .ow-project:hover .ow-label {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .ow-project:focus-visible .ow-label {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .ow-footer {
+            position: absolute;
+            bottom: 15vh;
+            width: 100%;
+            text-align: center;
+            z-index: 3;
+        }
+
+        .ow-footer-cta {
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            color: #F4F1EB;
+            text-transform: uppercase;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            transition: opacity 0.4s ease;
+            pointer-events: auto;
+        }
+
+        .ow-footer-cta .arr {
+            margin-left: 8px;
+            transition: transform 0.4s ease;
+        }
+
+        .ow-footer-cta:hover .arr {
+            transform: translateX(6px);
+        }
+
+        @media (max-width: 768px) {
+            .ow-sticky-title {
+                font-size: clamp(3rem, 12vw, 4rem);
+            }
+            .our-work-section {
+                height: 400vh;
+            }
+        }
+
+
+        /* =========================================================
+           SECTION 08: TRUST (TEXT REVIEWS)
+           ========================================================= */
+        .trust-section {
+            position: relative;
+            background-color: transparent;
+            color: #111111;
+            padding: 8rem 5%;
+            overflow: hidden;
+            z-index: 10;
+        }
+
+        .trust-header {
+            margin-bottom: 8rem;
+        }
+
+        .trust-eyebrow {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            display: block;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .trust-headline {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(64px, 8vw, 120px);
+            font-weight: 300;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            text-transform: uppercase;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease 0.1s, transform 1s ease 0.1s;
+        }
+
+        .trust-headline span {
+            display: block;
+        }
+
+        .trust-headline strong {
+            font-weight: 500;
+        }
+
+        .trust-intro {
+            font-size: 1.125rem;
+            max-width: 400px;
+            margin-top: 2rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease 0.2s, transform 0.8s ease 0.2s;
+        }
+
+        .trust-content {
+            display: flex;
+            gap: 4rem;
+            position: relative;
+        }
+
+        /* HORIZONTAL CAROUSEL REVIEWS */
+        .trust-carousel {
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            padding-bottom: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .trust-carousel::-webkit-scrollbar {
+            display: none;
+        }
+
+        .trust-carousel-inner {
+            display: flex;
+            gap: 2rem;
+            padding: 0 5%;
+            width: max-content;
+        }
+
+        .trust-card {
+            scroll-snap-align: center;
+            width: 450px;
+            background: #ffffff;
+            border: 1px solid rgba(17,17,17,0.05);
+            border-radius: 12px;
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            opacity: 0;
+            transform: translateX(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+        }
+
+        .trust-card:hover {
+            box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+            transform: translateY(-8px) !important;
+        }
+
+        .trust-card.revealed {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .tc-stars {
+            color: #111111;
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.1em;
+        }
+
+        .tc-quote {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.25rem;
+            line-height: 1.6;
+            font-weight: 400;
+            margin-bottom: 3rem;
+            color: #111111;
+        }
+
+        .tc-author {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(17,17,17,0.6);
+        }
+        /* QUICK CTA BLOCK */
+        .quick-cta-block {
+            margin: 8rem 0 4rem 0;
+            padding: 6rem 5%;
+            background: #111111;
+            color: #F4F1EB;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .trust-section.revealed .quick-cta-block {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .quick-cta-title {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(24px, 4vw, 48px);
+            font-weight: 300;
+            letter-spacing: -0.02em;
+            max-width: 600px;
+            line-height: 1.2;
+            margin: 0;
+        }
+
+        .quick-cta-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem 3rem;
+            background: #F4F1EB;
+            color: #111111;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 100px;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .quick-cta-btn .arr {
+            margin-left: 0.75rem;
+            transition: transform 0.3s ease;
+        }
+
+        .quick-cta-btn:hover {
+            transform: scale(1.02);
+            background: #ffffff;
+        }
+
+        .quick-cta-btn:hover .arr {
+            transform: translateX(5px);
+        }
+
+        /* REVEAL CLASSES */
+        .trust-section.revealed .trust-eyebrow,
+        .trust-section.revealed .trust-headline,
+        .trust-section.revealed .trust-intro {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        
+        @media (max-width: 900px) {
+            .quick-cta-block {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 3rem 2rem;
+                gap: 3rem;
+            }
+
+            .trust-headline {
+                font-size: clamp(48px, 15vw, 76px);
+            }
+            .trust-content {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            
+            
+            
+            .trust-card {
+                width: 320px;
+                padding: 2rem;
+            }
+            .trust-carousel-inner {
+                gap: 1rem;
+            }
+            .tc-quote {
+                font-size: 1.125rem;
+            }
+
+        }
+
+        /* =========================================================
+           SECTION 09: FOOTER
+           ========================================================= */
+        .site-footer {
+            background-color: #111111;
+            color: #F4F1EB;
+            padding: 8rem 5% 0 5%;
+            position: relative;
+            z-index: 10;
+        }
+
+        .footer-top {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 8rem;
+            border-bottom: 1px solid rgba(244, 241, 235, 0.1);
+            padding-bottom: 4rem;
+        }
+
+        .footer-col h4 {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            color: rgba(244, 241, 235, 0.5);
+        }
+
+        .footer-statement {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(24px, 3vw, 40px);
+            font-weight: 300;
+            line-height: 1.3;
+            max-width: 500px;
+            letter-spacing: -0.01em;
+            margin: 0;
+        }
+
+        .footer-link {
+            display: inline-block;
+            font-family: 'Inter', sans-serif;
+            font-size: 1.125rem;
+            color: #F4F1EB;
+            text-decoration: none;
+            margin-bottom: 1rem;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: rgba(244, 241, 235, 0.6);
+            transform: translateX(5px);
+        }
+
+        .back-to-top {
+            margin-top: 3rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .footer-bottom {
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+        }
+
+        .footer-monolith {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(40px, 12vw, 240px);
+            font-weight: 800;
+            line-height: 0.85;
+            letter-spacing: -0.04em;
+            white-space: nowrap;
+            color: #F4F1EB;
+            margin: 0;
+            padding-bottom: 1rem;
+            transform: translateY(40px);
+            opacity: 0;
+            transition: opacity 1.5s cubic-bezier(0.2, 0.8, 0.2, 1), transform 1.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .site-footer.revealed .footer-monolith {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 900px) {
+            .footer-top {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            .footer-statement {
+                font-size: clamp(24px, 8vw, 32px);
+            }
+        }
+</style>
+</head>
+
+<body>
+
+    <section class="hero" id="hero">
+
+        <!-- ======================================================
+         NAVIGATION
+         ====================================================== -->
+        <nav class="nav">
+            <div class="logo">
+                Charlotte Audio Rentals
+                <small>Charlotte, NC</small>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="#events">Events</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#packages">Packages</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+
+            <a href="#contact" class="nav-cta">Plan Your Event →</a>
+        </nav>
+
+        <!-- ======================================================
+         STATIONARY HERO CONTENT
+         ====================================================== -->
+        <div class="hero-content">
+            <p class="eyebrow">Audio Visual &amp; Event Production</p>
+
+            <h1 class="hero-h1">
+                Charlotte's Trusted<br>
+                Audio Visual<br>
+                <em>Rental Company</em>
+            </h1>
+
+            <p class="hero-tagline">
+                Sound Systems • LED Walls • TVs • Projectors • Staging • Lighting
+            </p>
+            <p class="hero-services">
+                Serving Corporate Events, Conferences, Weddings, Festivals &amp; Private Events Across North Carolina.
+            </p>
+
+            <div class="cta-group">
+                <a href="#contact" class="btn-quote">
+                    Get a Quote <span class="arr">→</span>
+                </a>
+                <p class="phone-txt">
+                    Call or Text &nbsp;<a href="tel:9802677577">980-267-7577</a>
+                </p>
+            </div>
+        </div>
+
+        <!-- ======================================================
+         EVENT CARD CAROUSEL
+         ====================================================== -->
+        <div class="carousel-zone" id="carouselZone">
+            <div class="cards-stage" id="cardsStage">
+                <!-- Cards injected by JavaScript -->
+            </div>
+        </div>
+
+        <div class="scroll-hint" aria-hidden="true">Scroll</div>
+
+    </section>
+
+    <!-- ======================================================
+         TRUSTED BY SECTION
+         ====================================================== -->
+    <section class="trusted-section">
+        <p class="trusted-eyebrow">Trusted By</p>
+        <h2 class="trusted-heading">Helping create <strong>memorable events</strong><br>across Charlotte &amp; beyond
+        </h2>
+
+        <div class="trusted-marquee">
+            <div class="marquee-track">
+                <!-- Group 1 -->
+                <div class="logo-placeholder">Company A</div>
+                <div class="logo-placeholder">Brand B</div>
+                <div class="logo-placeholder">Studio C</div>
+                <div class="logo-placeholder">Agency D</div>
+                <div class="logo-placeholder">Partner E</div>
+                <!-- Group 2 for seamless loop -->
+                <div class="logo-placeholder">Company A</div>
+                <div class="logo-placeholder">Brand B</div>
+                <div class="logo-placeholder">Studio C</div>
+                <div class="logo-placeholder">Agency D</div>
+                <div class="logo-placeholder">Partner E</div>
+            </div>
+        </div>
+    </section>
+    <!-- ======================================================
+         EVENT DISCOVERY SECTION
+         ====================================================== -->
+    <section class="event-discovery" id="discovery">
+        <div class="theme-trigger"></div>
+        <div class="discovery-intro">
+            <span class="d-eyebrow">03 — EVENT DISCOVERY</span>
+            <h2 class="d-heading">WHAT ARE YOU<br>PLANNING?</h2>
+            <p class="d-desc">From weddings and private celebrations to corporate events, conferences and outdoor
+                experiences, find the event you're planning and discover how we can help bring it to life.</p>
+        </div>
+
+        <div class="discovery-gallery" id="dGallery">
+            <!-- Event 01 -->
+            <article class="d-panel active" tabindex="0">
+                <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1200&auto=format&fit=crop"
+                    alt="Weddings" class="d-bg">
+                <div class="d-overlay"></div>
+                <div class="d-content">
+                    <span class="d-num">01</span>
+                    <h3 class="d-title">WEDDINGS</h3>
+                    <div class="d-details">
+                        <p class="d-text">Celebrate every moment.</p>
+                        <a href="#" class="d-cta">EXPLORE WEDDING SERVICES <span class="arr">→</span></a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Event 02 -->
+            <article class="d-panel" tabindex="0">
+                <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=1200&auto=format&fit=crop"
+                    alt="Corporate Events" class="d-bg">
+                <div class="d-overlay"></div>
+                <div class="d-content">
+                    <span class="d-num">02</span>
+                    <h3 class="d-title">CORPORATE EVENTS</h3>
+                    <div class="d-details">
+                        <p class="d-text">Professional events, seamlessly delivered.</p>
+                        <a href="#" class="d-cta">EXPLORE CORPORATE EVENTS <span class="arr">→</span></a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Event 03 -->
+            <article class="d-panel" tabindex="0">
+                <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=1200&auto=format&fit=crop"
+                    alt="Private Events" class="d-bg">
+                <div class="d-overlay"></div>
+                <div class="d-content">
+                    <span class="d-num">03</span>
+                    <h3 class="d-title">PRIVATE EVENTS</h3>
+                    <div class="d-details">
+                        <p class="d-text">Bring people together.</p>
+                        <a href="#" class="d-cta">EXPLORE PRIVATE EVENTS <span class="arr">→</span></a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Event 04 -->
+            <article class="d-panel" tabindex="0">
+                <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=1200&auto=format&fit=crop"
+                    alt="Conferences" class="d-bg">
+                <div class="d-overlay"></div>
+                <div class="d-content">
+                    <span class="d-num">04</span>
+                    <h3 class="d-title">CONFERENCES</h3>
+                    <div class="d-details">
+                        <p class="d-text">Make every moment clear.</p>
+                        <a href="#" class="d-cta">EXPLORE CONFERENCES <span class="arr">→</span></a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Event 05 -->
+            <article class="d-panel" tabindex="0">
+                <img src="https://images.unsplash.com/photo-1459749411175-04bf5292ceea?q=80&w=1200&auto=format&fit=crop"
+                    alt="Festivals" class="d-bg">
+                <div class="d-overlay"></div>
+                <div class="d-content">
+                    <span class="d-num">05</span>
+                    <h3 class="d-title">FESTIVALS</h3>
+                    <div class="d-details">
+                        <p class="d-text">Built for energy and scale.</p>
+                        <a href="#" class="d-cta">EXPLORE FESTIVALS <span class="arr">→</span></a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Event 06 -->
+            <article class="d-panel" tabindex="0">
+                <img src="https://images.unsplash.com/photo-1519671482749-fd098f382a99?q=80&w=1200&auto=format&fit=crop"
+                    alt="Galas" class="d-bg">
+                <div class="d-overlay"></div>
+                <div class="d-content">
+                    <span class="d-num">06</span>
+                    <h3 class="d-title">GALAS</h3>
+                    <div class="d-details">
+                        <p class="d-text">Create an atmosphere people remember.</p>
+                        <a href="#" class="d-cta">EXPLORE GALAS <span class="arr">→</span></a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Event 07 -->
+            <article class="d-panel" tabindex="0">
+                <img src="https://images.unsplash.com/photo-1595769816263-9b910be24d5f?q=80&w=1200&auto=format&fit=crop"
+                    alt="Outdoor Movies" class="d-bg">
+                <div class="d-overlay"></div>
+                <div class="d-content">
+                    <span class="d-num">07</span>
+                    <h3 class="d-title">OUTDOOR MOVIES</h3>
+                    <div class="d-details">
+                        <p class="d-text">Turn an evening into an experience.</p>
+                        <a href="#" class="d-cta">EXPLORE OUTDOOR MOVIES <span class="arr">→</span></a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- ======================================================
+         SECTION 04: OUR APPROACH
+         ====================================================== -->
+    <section class="approach-section" id="approach">
+        <div class="approach-container">
+            <div class="approach-layout">
+                <!-- Left Sticky -->
+                <div class="approach-sticky">
+                    <span class="a-eyebrow">04 — OUR APPROACH</span>
+                    <h2 class="a-heading">FROM IDEA<br>TO EVENT.</h2>
+                    <p class="a-desc">From the first conversation to the final setup, we make the technical side of your
+                        event simple, organized, and ready to perform.</p>
+
+                    <div class="a-visuals" id="approachVisuals">
+                        <!-- Images injected by JS -->
+                    </div>
+                </div>
+
+                <!-- Right Scroll -->
+                <div class="approach-scroll" id="approachScroll">
+                    <!-- Stages injected by JS -->
+                </div>
+            </div>
+
+            <div class="approach-footer">
+                THE RESULT IS AN EVENT THAT FEELS EFFORTLESS.
+                <span class="down-arrow">↓</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================================
+         SECTION 05: FEATURED EXPERIENCES
+         ====================================================== -->
+    <section class="experiences-section" id="experiences">
+        <div class="experiences-container">
+            <div class="exp-intro">
+                <span class="exp-eyebrow">05 — FEATURED EXPERIENCES</span>
+                <h2 class="exp-heading">BUILT<br>FOR THE<br>MOMENT.</h2>
+                <p class="exp-desc">Thoughtfully produced experiences designed to sound, look and feel exactly the way
+                    your event deserves.</p>
+            </div>
+
+            <div class="exp-grid" id="expGrid">
+                <!-- Main and list injected by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================================
+         SECTION 06: FIND THE RIGHT SETUP
+         ====================================================== -->
+    <section class="packages-section" id="packages">
+        <div class="packages-container">
+            <div class="pkg-intro">
+                <span class="pkg-eyebrow">06 — PACKAGES</span>
+                <h2 class="pkg-heading">FIND THE RIGHT<br>EXPERIENCE FOR YOU.</h2>
+                <p class="pkg-desc">Explore our package options and find a starting point that fits the needs of your event.</p>
+            </div>
+
+            <div class="pkg-layout" id="pkgLayout">
+                <!-- Selector and Content injected by JS -->
+            </div>
+
+            <div class="pkg-footer">
+                <div class="pkg-footer-text">NOT SURE WHICH ONE IS RIGHT FOR YOU?</div>
+                <a href="#contact" class="pkg-footer-cta">TALK TO OUR TEAM <span class="arr">→</span></a>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- ======================================================
+         SECTION 07: OUR WORK
+         ====================================================== -->
+    <div class="theme-trigger-dark"></div>
+    <section class="our-work-section" id="portfolio">
+        <div class="ow-sticky-container">
+            
+            <div class="ow-sticky-title" id="owTitle">OUR WORK</div>
+        </div>
+        <div class="ow-gallery" id="owGallery">
+            <!-- Projects injected by JS -->
+        </div>
+        <div class="ow-footer">
+            <a href="#all-work" class="ow-footer-cta">VIEW ALL WORK <span class="arr">→</span></a>
+        </div>
+    </section>
+
+
+    
+    <!-- ======================================================
+         SECTION 08: TRUST
+         ====================================================== -->
+    <div class="theme-trigger-trust"></div>
+    <section class="trust-section" id="trust">
+        <div class="trust-header">
+            <span class="trust-eyebrow">08 — TRUST</span>
+            <h2 class="trust-headline">
+                <span>TRUSTED TO</span>
+                <span><strong>DELIVER.</strong></span>
+            </h2>
+            <p class="trust-intro">Trusted by venues, organizations and clients across North Carolina.</p>
+        </div>
+
+        <div class="trust-content">
+            <div class="trust-carousel">
+                <div class="trust-carousel-inner">
+                    <div class="trust-card">
+                        <div class="tc-stars">★★★★★</div>
+                        <p class="tc-quote">"The production value they brought to our gala was unparalleled. Flawless execution from start to finish."</p>
+                        <p class="tc-author">THE BALLANTYNE</p>
+                    </div>
+                    <div class="trust-card">
+                        <div class="tc-stars">★★★★★</div>
+                        <p class="tc-quote">"Absolute professionals. They understand exactly how to build an atmosphere that keeps the energy high all night."</p>
+                        <p class="tc-author">RED BULL</p>
+                    </div>
+                    <div class="trust-card">
+                        <div class="tc-stars">★★★★★</div>
+                        <p class="tc-quote">"Their attention to detail and premium sound quality completely transformed the dynamic of our space."</p>
+                        <p class="tc-author">QUAIL HOLLOW CLUB</p>
+                    </div>
+                    <div class="trust-card">
+                        <div class="tc-stars">★★★★★</div>
+                        <p class="tc-quote">"A truly seamless partnership. They delivered an experience that exceeded the high expectations of our guests."</p>
+                        <p class="tc-author">THE MOREHEAD INN</p>
+                    </div>
+                    <div class="trust-card">
+                        <div class="tc-stars">★★★★★</div>
+                        <p class="tc-quote">"Consistently brilliant. They are our first call when we need an event to look and sound extraordinary."</p>
+                        <p class="tc-author">CHARLOTTE COUNTRY CLUB</p>
+                    </div>
+                    <div class="trust-card">
+                        <div class="tc-stars">★★★★★</div>
+                        <p class="tc-quote">"Impeccable service and state-of-the-art equipment. They are a massive asset to any large-scale production."</p>
+                        <p class="tc-author">MECKLENBURG COUNTY</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="quick-cta-block">
+            <h3 class="quick-cta-title">LET'S BUILD SOMETHING EXTRAORDINARY.</h3>
+            <a href="#contact" class="quick-cta-btn">REQUEST A QUOTE <span class="arr">→</span></a>
+        </div>
+    </section>
+
+    
+    <!-- ======================================================
+         SECTION 09: FOOTER
+         ====================================================== -->
+    <div class="theme-trigger-footer"></div>
+    <footer class="site-footer" id="contact">
+        <div class="footer-top">
+            <div class="footer-col">
+                <p class="footer-statement">Providing premium audio, lighting, and production services to North Carolina and beyond.</p>
+            </div>
+            <div class="footer-col">
+                <h4>CONTACT</h4>
+                <a href="mailto:booking@charlotteaudio.com" class="footer-link">booking@charlotteaudio.com</a><br>
+                <a href="tel:7045550198" class="footer-link">(704) 555-0198</a>
+            </div>
+            <div class="footer-col">
+                <h4>SOCIAL</h4>
+                <a href="#" class="footer-link">Instagram</a><br>
+                <a href="#" class="footer-link">LinkedIn</a>
+            </div>
+            <div class="footer-col">
+                <h4>LEGAL</h4>
+                <a href="#" class="footer-link">Privacy Policy</a><br>
+                <a href="#" class="footer-link">Terms of Service</a><br>
+                <a href="#" class="footer-link back-to-top" id="backToTop">Back to Top ↑</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <h2 class="footer-monolith">CHARLOTTE AUDIO RENTALS</h2>
+        </div>
+    </footer>
+
+<!-- ============================================================
+     SECTION 08: TRUST ENGINE
+     ============================================================ -->
+    <script>
+        (function () {
+            'use strict';
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            
+            const section = document.getElementById('trust');
+            const cards = document.querySelectorAll('.trust-card');
+            if (!section) return;
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        section.classList.add('revealed');
+                        if (!prefersReducedMotion) {
+                            cards.forEach((c, i) => {
+                                setTimeout(() => c.classList.add('revealed'), 100 + (i * 150));
+                            });
+                        } else {
+                            cards.forEach(c => c.classList.add('revealed'));
+                        }
+                    }
+                });
+            }, { rootMargin: '0px 0px -15% 0px' });
+            observer.observe(section);
+
+            const themeObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        document.body.classList.add('theme-light');
+                    } else if (entry.boundingClientRect.top > 0) {
+                        document.body.classList.remove('theme-light');
+                    }
+                });
+            }, { rootMargin: '0px 0px -50% 0px' });
+            const trigger = document.querySelector('.theme-trigger-trust');
+            if (trigger) themeObserver.observe(trigger);
+
+            // Footer Logic
+            const siteFooter = document.querySelector('.site-footer');
+            if (siteFooter) {
+                const footerObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            siteFooter.classList.add('revealed');
+                        }
+                    });
+                }, { rootMargin: '0px 0px -10% 0px' });
+                footerObserver.observe(siteFooter);
+                
+                const backBtn = document.getElementById('backToTop');
+                if (backBtn) {
+                    backBtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    });
+                }
+            }
+
+            const themeFooterObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        document.body.classList.remove('theme-light');
+                    } else if (entry.boundingClientRect.top > 0) {
+                        document.body.classList.add('theme-light');
+                    }
+                });
+            }, { rootMargin: '0px 0px -50% 0px' });
+            const triggerFooter = document.querySelector('.theme-trigger-footer');
+            if (triggerFooter) themeFooterObserver.observe(triggerFooter);
+
+        })();
+    </script>
+
+
+    <!-- ============================================================
+     CAROUSEL ENGINE
+     ============================================================ -->
+    <script>
+        (function () {
+            'use strict';
+
+            /* ─── Event data ───────────────────────────────────────── */
+            const EVENTS = [
+                {
+                    num: '01', name: 'AUDIO',
+                    sub: 'Professional event sound.',
+                    alt: 'Professional powered speaker',
+                    img: 'https://images.unsplash.com/photo-1598653222000-6b7b7a552625?w=640&q=80&auto=format&fit=crop&crop=center'
+                },
+                {
+                    num: '02', name: 'LED WALLS',
+                    sub: 'Modular high-resolution displays.',
+                    alt: 'LED Wall modules',
+                    img: 'https://images.unsplash.com/photo-1516280440541-2b8109d435fb?w=640&q=80&auto=format&fit=crop&crop=center'
+                },
+                {
+                    num: '03', name: 'LIGHTING',
+                    sub: 'Intelligent stage fixtures.',
+                    alt: 'Moving head lighting fixtures',
+                    img: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=640&q=80&auto=format&fit=crop&crop=center'
+                },
+                {
+                    num: '04', name: 'STAGING',
+                    sub: 'Custom platforms & rigging.',
+                    alt: 'Stage rigging and platforms',
+                    img: 'https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=640&q=80&auto=format&fit=crop&crop=center'
+                },
+                {
+                    num: '05', name: 'PROJECTORS',
+                    sub: 'High-lumen laser projection.',
+                    alt: 'Professional installation projector',
+                    img: 'https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=640&q=80&auto=format&fit=crop&crop=center'
+                },
+                {
+                    num: '06', name: 'DISPLAYS',
+                    sub: 'Large format 4K monitors.',
+                    alt: 'Commercial display monitors',
+                    img: 'https://images.unsplash.com/photo-1593784991095-a205069470b6?w=640&q=80&auto=format&fit=crop&crop=center'
+                },
+                {
+                    num: '07', name: 'DJ EQUIPMENT',
+                    sub: 'Industry standard decks.',
+                    alt: 'Professional DJ controller',
+                    img: 'https://images.unsplash.com/photo-1571266028243-3716f02d2d2e?w=640&q=80&auto=format&fit=crop&crop=center'
+                },
+                {
+                    num: '08', name: 'SPECIAL EFFECTS',
+                    sub: 'Atmospherics & cold sparks.',
+                    alt: 'Stage atmospherics',
+                    img: 'https://images.unsplash.com/photo-1478224716766-3d2bbf18ed5a?w=640&q=80&auto=format&fit=crop&crop=center'
+                }
+            ];
+
+            const TOTAL = EVENTS.length;
+            const N_SLOTS = 7;    // positions 0–6, center = slot 3
+            const CENTER = 3;
+            const HOLD_MS = 5000; // 5 second hold
+            const TRANS_MS = 1200; // transition duration
+
+            /* ─── State ────────────────────────────────────────────── */
+            let centerIdx = 0;   // which event is in the center slot
+            let isAnim = false;
+            let isPaused = false;
+            let autoTimer = null;
+
+            /* ─── DOM refs ─────────────────────────────────────────── */
+            const stage = document.getElementById('cardsStage');
+            const zone = document.getElementById('carouselZone');
+
+            /* Circular array of card elements (length = N_SLOTS) */
+            const cards = [];
+
+            /* ─── Helpers ──────────────────────────────────────────── */
+            function mod(n, m) { return ((n % m) + m) % m; }
+
+            /* Get the event index for a given slot position */
+            function eventForSlot(slot) {
+                const offset = slot - CENTER;              // -3 … +3
+                return mod(centerIdx + offset, TOTAL);
+            }
+
+            /* Fill a card element with event data */
+            function fillCard(el, ev) {
+                el.querySelector('img').src = ev.img;
+                el.querySelector('img').alt = ev.alt;
+                el.querySelector('.c-num').textContent = ev.num;
+                el.querySelector('.c-name').textContent = ev.name;
+                el.querySelector('.c-sub').textContent = ev.sub;
+                el.setAttribute('aria-label', ev.name);
+            }
+
+            /* ─── Build all 7 cards ────────────────────────────────── */
+            function buildCards() {
+                for (let slot = 0; slot < N_SLOTS; slot++) {
+                    const ev = EVENTS[eventForSlot(slot)];
+                    const card = document.createElement('article');
+                    card.className = 'event-card';
+                    card.setAttribute('data-slot', slot);
+                    card.setAttribute('aria-label', ev.name);
+
+                    card.innerHTML = `
+                <img src="${ev.img}" alt="${ev.alt}" loading="${slot === CENTER ? 'eager' : 'lazy'}">
+                <div class="card-info">
+                    <div class="c-num">${ev.num}</div>
+                    <div class="c-name">${ev.name}</div>
+                    <div class="c-sub">${ev.sub}</div>
+                </div>
+            `;
+
+                    /* Click adjacent cards to navigate */
+                    card.addEventListener('click', () => {
+                        const s = parseInt(card.getAttribute('data-slot'), 10);
+                        if (s === CENTER - 1) manualAdvance(-1);
+                        else if (s === CENTER + 1) manualAdvance(+1);
+                    });
+
+                    stage.appendChild(card);
+                    cards.push(card);
+                }
+            }
+
+            /* ─── ADVANCE ──────────────────────────────────────────── */
+            /*
+             * direction: +1 = forward (Weddings → Corporate → …)
+             *            -1 = backward
+             *
+             * Algorithm (forward):
+             *   1. cards[0] is the leftmost (slot 0).
+             *   2. Disable its transition, move to slot 7 (off-screen right) instantly.
+             *   3. Update its content for the new rightmost event.
+             *   4. Force reflow, re-enable transition.
+             *   5. Shift the cards array: [0,1,2,3,4,5,6] → [1,2,3,4,5,6,0-recycled]
+             *   6. Update all data-slot attributes → CSS transitions fire simultaneously.
+             */
+            function advance(dir) {
+                if (isAnim) return;
+                isAnim = true;
+
+                /* Update center event index */
+                centerIdx = mod(centerIdx + dir, TOTAL);
+
+                if (dir > 0) {
+                    /* Forward: recycle leftmost card to right */
+                    const recycling = cards[0];
+
+                    /* Teleport it off-screen right (no transition) */
+                    recycling.style.transition = 'none';
+                    recycling.setAttribute('data-slot', '7');
+
+                    /* Update content for new rightmost slot */
+                    fillCard(recycling, EVENTS[eventForSlot(N_SLOTS - 1)]);
+
+                    /* Force browser reflow to register the teleport */
+                    recycling.offsetHeight; // eslint-disable-line
+
+                    /* Re-enable transitions */
+                    recycling.style.transition = '';
+
+                    /* Rotate the array: shift leftmost to rightmost */
+                    cards.push(cards.shift());
+
+                } else {
+                    /* Backward: recycle rightmost card to left */
+                    const recycling = cards[N_SLOTS - 1];
+
+                    recycling.style.transition = 'none';
+                    recycling.setAttribute('data-slot', '-1');
+
+                    fillCard(recycling, EVENTS[eventForSlot(0)]);
+
+                    recycling.offsetHeight; // eslint-disable-line
+
+                    recycling.style.transition = '';
+
+                    cards.unshift(cards.pop());
+                }
+
+                /* Re-assign all slot indices → all CSS transitions fire */
+                cards.forEach((card, idx) => {
+                    card.setAttribute('data-slot', idx);
+                });
+
+                setTimeout(() => { isAnim = false; }, TRANS_MS + 50);
+            }
+
+            function manualAdvance(dir) {
+                pauseTemporarily(4000);
+                advance(dir);
+            }
+
+            function pauseTemporarily(ms) {
+                isPaused = true;
+                clearTimeout(pauseTemporarily._t);
+                pauseTemporarily._t = setTimeout(() => { isPaused = false; }, ms);
+            }
+
+
+
+            /* ─── Autoplay ─────────────────────────────────────────── */
+            function startAuto() {
+                clearInterval(autoTimer);
+                autoTimer = setInterval(() => {
+                    if (!isPaused) advance(+1);
+                }, HOLD_MS);
+            }
+
+            /* ─── Hover pause ──────────────────────────────────────── */
+            zone.addEventListener('mouseenter', () => { isPaused = true; });
+            zone.addEventListener('mouseleave', () => { isPaused = false; });
+
+            /* ─── Drag / Swipe ─────────────────────────────────────── */
+            let dragX = 0;
+            const THRESH = 55;
+
+            zone.addEventListener('mousedown', e => { dragX = e.clientX; });
+            zone.addEventListener('mouseup', e => {
+                const d = dragX - e.clientX;
+                if (Math.abs(d) > THRESH) manualAdvance(d > 0 ? +1 : -1);
+            });
+            zone.addEventListener('touchstart', e => { dragX = e.touches[0].clientX; }, { passive: true });
+            zone.addEventListener('touchend', e => {
+                const d = dragX - e.changedTouches[0].clientX;
+                if (Math.abs(d) > THRESH) manualAdvance(d > 0 ? +1 : -1);
+            }, { passive: true });
+
+            /* ─── Keyboard ─────────────────────────────────────────── */
+            document.addEventListener('keydown', e => {
+                if (e.key === 'ArrowRight') manualAdvance(+1);
+                if (e.key === 'ArrowLeft') manualAdvance(-1);
+            });
+
+            /* ─── Init ─────────────────────────────────────────────── */
+            buildCards();
+
+            window.addEventListener('load', () => {
+                const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                if (!reducedMotion) {
+                    startAuto();
+                    zone.addEventListener('mouseenter', () => { isPaused = true; });
+                    zone.addEventListener('mouseleave', () => { isPaused = false; });
+                }
+            });
+
+        })();
+    </script>
+
+    <!-- ============================================================
+     SERVICES SECTION ENGINE
+     ============================================================ -->
+    <script>
+        (function () {
+            const SERVICES_DATA = [
+                { num: '01', name: 'AUDIO', sub: 'Sound systems • PA • Wireless microphones', img: 'https://images.unsplash.com/photo-1598653222000-6b7b7a552625?w=1200&q=80' },
+                { num: '02', name: 'LED WALLS', sub: 'Indoor • Outdoor • Large-format displays', img: 'https://images.unsplash.com/photo-1516280440541-2b8109d435fb?w=1200&q=80' },
+                { num: '03', name: 'LIGHTING', sub: 'Uplighting • Moving Heads • DJ Lighting', img: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1200&q=80' },
+                { num: '04', name: 'TVs & DISPLAYS', sub: '4K TVs • Presentation displays', img: 'https://images.unsplash.com/photo-1593784991095-a205069470b6?w=1200&q=80' },
+                { num: '05', name: 'PROJECTORS', sub: 'Short-throw • High-resolution • Installation', img: 'https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=1200&q=80' },
+                { num: '06', name: 'STAGING', sub: 'Portable stages • Event staging', img: 'https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=1200&q=80' },
+                { num: '07', name: 'DJ & MC', sub: 'Weddings • Corporate • Private Events', img: 'https://images.unsplash.com/photo-1571266028243-3716f02d2d2e?w=1200&q=80' },
+                { num: '08', name: 'SPECIAL EFFECTS', sub: 'Cold Sparks • Dancing on Clouds • Lasers', img: 'https://images.unsplash.com/photo-1478224716766-3d2bbf18ed5a?w=1200&q=80' },
+                { num: '09', name: 'CORPORATE AV', sub: 'Meetings • Conferences • Presentations', img: 'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=1200&q=80' }
+            ];
+
+            const listContainer = document.getElementById('servicesList');
+            const previewContainer = document.getElementById('servicesPreview');
+
+            // Inject DOM
+            SERVICES_DATA.forEach((s, i) => {
+                const isActive = i === 0 ? 'active' : '';
+
+                // Add to list
+                const row = document.createElement('div');
+                row.className = `service-row ${isActive}`;
+                row.setAttribute('data-idx', i);
+                row.innerHTML = `
+                    <div class="s-row-header">
+                        <div class="s-row-num">${s.num}</div>
+                        <div class="s-row-title-group">
+                            <h3 class="s-row-title">${s.name}</h3>
+                            <div class="s-row-sub">${s.sub}</div>
+                        </div>
+                        <div class="s-row-arrow">→</div>
+                    </div>
+                    <div class="s-row-content">
+                        <div class="s-row-content-inner">
+                            <img src="${s.img}" alt="${s.name}" class="s-row-img-mobile">
+                            <p class="s-desc">Professional ${s.name.toLowerCase()} solutions tailored to your event requirements.</p>
+                            <a href="#" class="s-row-cta">EXPLORE SERVICE →</a>
+                        </div>
+                    </div>
+                `;
+                listContainer.appendChild(row);
+
+                // Add to preview (desktop)
+                const img = document.createElement('img');
+                img.className = `s-image ${isActive}`;
+                img.src = s.img;
+                img.alt = s.name;
+                img.setAttribute('data-idx', i);
+                previewContainer.appendChild(img);
+            });
+
+            // Interactions
+            const rows = document.querySelectorAll('.service-row');
+            const images = document.querySelectorAll('.s-image');
+
+            function activateService(idx) {
+                rows.forEach(r => r.classList.remove('active'));
+                images.forEach(img => img.classList.remove('active'));
+
+                const activeRow = document.querySelector(`.service-row[data-idx="${idx}"]`);
+                const activeImg = document.querySelector(`.s-image[data-idx="${idx}"]`);
+
+                if (activeRow) activeRow.classList.add('active');
+                if (activeImg) activeImg.classList.add('active');
+            }
+
+            rows.forEach(row => {
+                row.addEventListener('mouseenter', () => {
+                    if (window.innerWidth > 1023) {
+                        const idx = row.getAttribute('data-idx');
+                        activateService(idx);
+                    }
+                });
+
+                row.addEventListener('click', () => {
+                    if (window.innerWidth <= 1023) {
+                        const idx = row.getAttribute('data-idx');
+                        activateService(idx);
+
+                        // Mobile scroll to view slightly
+                        setTimeout(() => {
+                            row.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                        }, 300);
+                    }
+                });
+            });
+
+            // Scroll animations
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                    }
+                });
+            }, { rootMargin: '0px 0px -100px 0px' });
+
+            const targets = document.querySelectorAll('.services-intro, .services-list, .services-preview');
+            targets.forEach(t => observer.observe(t));
+
+        })();
+    </script>
+
+    <!-- ============================================================
+     APPROACH SECTION ENGINE
+     ============================================================ -->
+    <script>
+        (function () {
+            const STAGES_DATA = [
+                { num: '01', title: 'UNDERSTAND', desc: "Start with the event.<br><br>We learn what you're planning, where it is happening, the audience, the format, and what the production needs to accomplish.", img: 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=1200&q=80' },
+                { num: '02', title: 'PLAN', desc: "Build the right setup.<br><br>We work through the technical requirements, layout, equipment requirements, logistics, and production details.", img: 'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=1200&q=80' },
+                { num: '03', title: 'PREPARE', desc: "Get everything ready.<br><br>Equipment and production elements are prepared, checked, organized, and coordinated before the event.", img: 'https://images.unsplash.com/photo-1520697830682-89814ebcd9c1?w=1200&q=80' },
+                { num: '04', title: 'DELIVER', desc: "Bring it all together.<br><br>The setup is delivered, installed, tested, and ready for the event.", img: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1200&q=80' }
+            ];
+
+            const scrollContainer = document.getElementById('approachScroll');
+            const visualContainer = document.getElementById('approachVisuals');
+
+            // Inject DOM
+            STAGES_DATA.forEach((s, i) => {
+                const isActive = i === 0 ? 'active' : '';
+
+                // Add to stages (right side)
+                const stage = document.createElement('div');
+                stage.className = `a-stage ${isActive}`;
+                stage.setAttribute('data-idx', i);
+                stage.innerHTML = `
+                    <div class="a-stage-num">${s.num}</div>
+                    <h3 class="a-stage-title">${s.title}</h3>
+                    <img src="${s.img}" alt="${s.title}" class="a-stage-img-mobile">
+                    <div class="a-stage-desc">${s.desc}</div>
+                `;
+                scrollContainer.appendChild(stage);
+
+                // Add to visuals (left side)
+                const img = document.createElement('img');
+                img.className = `a-image ${isActive}`;
+                img.src = s.img;
+                img.alt = s.title;
+                img.setAttribute('data-idx', i);
+                visualContainer.appendChild(img);
+            });
+
+            // Scroll Spy Interaction
+            const stages = document.querySelectorAll('.a-stage');
+            const images = document.querySelectorAll('.a-image');
+
+            if (window.innerWidth > 1023) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const idx = entry.target.getAttribute('data-idx');
+
+                            // Deactivate all
+                            stages.forEach(s => s.classList.remove('active'));
+                            images.forEach(img => img.classList.remove('active'));
+
+                            // Activate current
+                            entry.target.classList.add('active');
+                            const activeImg = document.querySelector(`.a-image[data-idx="${idx}"]`);
+                            if (activeImg) activeImg.classList.add('active');
+                        }
+                    });
+                }, {
+                    root: null,
+                    rootMargin: '-40% 0px -40% 0px', // Triggers when element is near center of viewport
+                    threshold: 0
+                });
+
+                stages.forEach(stage => observer.observe(stage));
+            }
+        })();
+    </script>
+
+    <!-- ============================================================
+     EVENT DISCOVERY ENGINE
+     ============================================================ -->
+    <script>
+        (function () {
+            'use strict';
+            const panels = document.querySelectorAll('.d-panel');
+            if (!panels.length) return;
+
+            let activePanel = panels[0];
+
+            function setActive(panel) {
+                if (activePanel === panel) return;
+                activePanel.classList.remove('active');
+                panel.classList.add('active');
+                activePanel = panel;
+
+                // For mobile: ensure the active panel is scrolled into view smoothly
+                if (window.innerWidth <= 767) {
+                    panel.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+                }
+            }
+
+            panels.forEach(panel => {
+                panel.addEventListener('mouseenter', () => {
+                    if (window.innerWidth > 767) setActive(panel);
+                });
+
+                panel.addEventListener('focus', () => {
+                    setActive(panel);
+                });
+
+                panel.addEventListener('click', () => {
+                    setActive(panel);
+                });
+
+                // Keyboard accessibility
+                panel.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        setActive(panel);
+                    }
+                });
+            });
+
+        })();
+
+        // Theme observer
+        const themeObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    document.body.classList.add('theme-light');
+
+                    // Auto snap the section to the top of the screen
+                    const discoverySection = document.querySelector('.event-discovery');
+                    if (discoverySection) {
+                        setTimeout(() => {
+                            discoverySection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }, 50);
+                    }
+                } else {
+                    // Only revert if we scroll back UP
+                    if (entry.boundingClientRect.top > 0) {
+                        document.body.classList.remove('theme-light');
+                    }
+                }
+            });
+        }, {
+            root: null,
+            rootMargin: '0px 0px -50% 0px', // Triggers when the trigger hits the middle of the screen
+            threshold: 0
+        });
+
+        const trigger = document.querySelector('.theme-trigger');
+        if (trigger) {
+            themeObserver.observe(trigger);
+        }
+    </script>
+
+    <!-- ============================================================
+     EXPERIENCES ENGINE
+     ============================================================ -->
+    <script>
+        (function () {
+            const EXP_DATA = [
+                { num: '01', title: 'THE CLUB AT LONGVIEW', cat: 'LED WALL + AUDIO', img: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1600&q=80' },
+                { num: '02', title: 'TECH INNOVATE SUMMIT', cat: 'CORPORATE PRODUCTION', img: 'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=1600&q=80' },
+                { num: '03', title: 'CHARLOTTE SUMMER FEST', cat: 'STAGE + LIGHTING', img: 'https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=1600&q=80' },
+                { num: '04', title: 'SYMPHONY UNDER THE STARS', cat: 'OUTDOOR EXPERIENCE', img: 'https://images.unsplash.com/photo-1595769816263-9b910be24d5f?w=1600&q=80' }
+            ];
+
+            const gridContainer = document.getElementById('expGrid');
+            if (!gridContainer) return;
+
+            let activeIdx = 0;
+
+            function render() {
+                gridContainer.innerHTML = '';
+
+                const activeItem = EXP_DATA[activeIdx];
+                const others = EXP_DATA.filter((_, idx) => idx !== activeIdx);
+
+                // Main Display
+                const mainDiv = document.createElement('div');
+                mainDiv.className = 'exp-main';
+                mainDiv.setAttribute('data-idx', activeIdx);
+
+                // Add swapping class briefly to trigger transition
+                requestAnimationFrame(() => {
+                    mainDiv.classList.add('is-swapping');
+                    requestAnimationFrame(() => {
+                        mainDiv.classList.remove('is-swapping');
+                    });
+                });
+
+                mainDiv.innerHTML = `
+                    <img src="${activeItem.img}" alt="${activeItem.title}" class="exp-main-img">
+                    <div class="exp-main-overlay"></div>
+                    <div class="exp-main-content">
+                        <div class="exp-main-num">${activeItem.num}</div>
+                        <h3 class="exp-main-title">${activeItem.title}</h3>
+                        <div class="exp-main-cat">${activeItem.cat}</div>
+                        <a href="#" class="exp-main-cta">EXPLORE EXPERIENCE <span class="arr">→</span></a>
+                    </div>
+                `;
+                gridContainer.appendChild(mainDiv);
+
+                // Secondary List
+                const listDiv = document.createElement('div');
+                listDiv.className = 'exp-list';
+
+                others.forEach(item => {
+                    const originalIdx = EXP_DATA.indexOf(item);
+                    const itemDiv = document.createElement('div');
+                    itemDiv.className = 'exp-item';
+                    itemDiv.setAttribute('tabindex', '0');
+                    itemDiv.setAttribute('data-idx', originalIdx);
+                    itemDiv.innerHTML = `
+                        <img src="${item.img}" alt="${item.title}" class="exp-item-img">
+                        <div class="exp-item-overlay"></div>
+                        <div class="exp-item-content">
+                            <div class="exp-item-num">${item.num}</div>
+                            <div class="exp-item-cat">${item.cat}</div>
+                        </div>
+                    `;
+
+                    // Interaction
+                    const activate = () => {
+                        if (activeIdx !== originalIdx) {
+                            activeIdx = originalIdx;
+                            render();
+                        }
+                    };
+
+                    itemDiv.addEventListener('click', activate);
+                    itemDiv.addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            activate();
+                        }
+                    });
+
+                    listDiv.appendChild(itemDiv);
+                });
+
+                gridContainer.appendChild(listDiv);
+
+                // Observe new items for scroll reveal
+                expObserver.observe(mainDiv);
+                expObserver.observe(listDiv);
+                // Immediately reveal them if they are replacing an already revealed grid
+                const intro = document.querySelector('.exp-intro');
+                if (intro && intro.classList.contains('revealed')) {
+                    mainDiv.classList.add('revealed');
+                    listDiv.classList.add('revealed');
+                }
+            }
+
+            // Intersection Observer
+            const expObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                    }
+                });
+            }, { rootMargin: '0px 0px -100px 0px' });
+
+            const intro = document.querySelector('.exp-intro');
+            if (intro) expObserver.observe(intro);
+
+            // Initial Render
+            render();
+        })();
+    </script>
+
+    <!-- ============================================================
+     PACKAGES SECTION ENGINE
+     ============================================================ -->
+    <script>
+        (function() {
+            const PKG_DATA = [
+                {
+                    id: 'weddings',
+                    num: '01',
+                    title: 'WEDDINGS',
+                    cat: 'WEDDING DJ PACKAGES',
+                    img: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=1200&q=80',
+                    packages: [
+                        {
+                            name: 'ESSENTIAL',
+                            popular: false,
+                            desc: 'The perfect foundation for an incredible celebration.',
+                            features: [
+                                'Professional Wedding DJ / MC',
+                                'Premium Sound System (up to 150 guests)',
+                                'Wireless Microphones for Toasts',
+                                'Dance Floor Lighting'
+                            ]
+                        },
+                        {
+                            name: 'CLASSIC',
+                            popular: true,
+                            desc: 'Our most requested wedding entertainment and production package.',
+                            features: [
+                                'Everything in Essential',
+                                'Upgraded Sound System (up to 250 guests)',
+                                'Ceremony Audio Setup',
+                                'Full Room Uplighting'
+                            ]
+                        },
+                        {
+                            name: 'PREMIUM',
+                            popular: false,
+                            desc: 'Complete high-end production for unforgettable moments.',
+                            features: [
+                                'Everything in Classic',
+                                'Custom Monogram Projection',
+                                'Cold Spark Fountains',
+                                'Intelligent Moving Head Lights'
+                            ]
+                        }
+                    ]
+                },
+                {
+                    id: 'private',
+                    num: '02',
+                    title: 'PRIVATE EVENTS',
+                    cat: 'PARTY & CELEBRATION PACKAGES',
+                    img: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1200&q=80',
+                    packages: [
+                        {
+                            name: 'SMALL',
+                            popular: false,
+                            desc: 'Intimate setup for backyards or small venues.',
+                            features: [
+                                'Compact Sound System',
+                                'Bluetooth or DJ Plugin',
+                                'Basic Wash Lighting'
+                            ]
+                        },
+                        {
+                            name: 'MEDIUM',
+                            popular: true,
+                            desc: 'Full-range sound for energetic private parties.',
+                            features: [
+                                'High-Output Sound System with Subwoofer',
+                                'DJ / MC Services Available',
+                                'Dynamic Party Lighting'
+                            ]
+                        },
+                        {
+                            name: 'PREMIUM',
+                            popular: false,
+                            desc: 'Club-level production for your private event.',
+                            features: [
+                                'Concert-Grade Audio',
+                                'Intelligent Lighting Show',
+                                'Atmospheric Effects'
+                            ]
+                        }
+                    ]
+                },
+                {
+                    id: 'corporate',
+                    num: '03',
+                    title: 'CORPORATE EVENTS',
+                    cat: 'CORPORATE DJ & PRODUCTION',
+                    img: 'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=1200&q=80',
+                    packages: [
+                        {
+                            name: 'ESSENTIAL',
+                            popular: false,
+                            desc: 'Professional audio for company gatherings.',
+                            features: [
+                                'Corporate Event DJ',
+                                'Background Music & Announcements',
+                                'Wireless Microphones'
+                            ]
+                        },
+                        {
+                            name: 'CLASSIC',
+                            popular: true,
+                            desc: 'Ideal for holiday parties and large team events.',
+                            features: [
+                                'Full Range Audio System',
+                                'Dance Floor Lighting',
+                                'Architectural Uplighting'
+                            ]
+                        },
+                        {
+                            name: 'PREMIUM',
+                            popular: false,
+                            desc: 'High-impact production for galas and major events.',
+                            features: [
+                                'Large Venue Sound System',
+                                'Custom Branded Projection',
+                                'Full Lighting Design & Programming'
+                            ]
+                        }
+                    ]
+                },
+                {
+                    id: 'meetings',
+                    num: '04',
+                    title: 'MEETINGS & CONFERENCES',
+                    cat: 'AV & PRESENTATION PACKAGES',
+                    img: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1200&q=80',
+                    packages: [
+                        {
+                            name: 'PRESENTATION BASIC',
+                            popular: false,
+                            desc: 'Clear audio and video for small meetings.',
+                            features: [
+                                'Powered Speakers',
+                                'Wireless Lapel or Handheld Mic',
+                                '65" to 85" Display Monitor'
+                            ]
+                        },
+                        {
+                            name: 'CONFERENCE ADVANCED',
+                            popular: true,
+                            desc: 'Complete AV support for ballrooms or large halls.',
+                            features: [
+                                'Multi-Speaker Distributed Audio',
+                                'Fast-Fold Projection Screens',
+                                'High-Lumen Laser Projectors',
+                                'Digital Audio Console & Technician'
+                            ]
+                        }
+                    ]
+                }
+            ];
+
+            const layoutContainer = document.getElementById('pkgLayout');
+            if (!layoutContainer) return;
+
+            let activeId = 'weddings';
+
+            function render() {
+                layoutContainer.innerHTML = '';
+
+                // Left Selector
+                const selectorDiv = document.createElement('div');
+                selectorDiv.className = 'pkg-selector';
+
+                PKG_DATA.forEach(sol => {
+                    const btn = document.createElement('button');
+                    btn.className = `pkg-btn ${sol.id === activeId ? 'active' : ''}`;
+                    btn.innerHTML = `${sol.num} ${sol.title.replace(' & CONFERENCES', '')}`;
+                    btn.addEventListener('click', () => {
+                        if (activeId !== sol.id) {
+                            activeId = sol.id;
+                            render();
+                        }
+                    });
+                    selectorDiv.appendChild(btn);
+                });
+
+                layoutContainer.appendChild(selectorDiv);
+
+                // Right Content
+                const activeSol = PKG_DATA.find(s => s.id === activeId);
+                const contentDiv = document.createElement('div');
+                contentDiv.className = 'pkg-content';
+
+                // Add swapping class for transition
+                requestAnimationFrame(() => {
+                    contentDiv.classList.add('is-swapping');
+                    requestAnimationFrame(() => {
+                        contentDiv.classList.remove('is-swapping');
+                    });
+                });
+
+                let packagesHtml = '';
+                activeSol.packages.forEach((pkg, index) => {
+                    let featuresHtml = pkg.features.map(f => `<li>${f}</li>`).join('');
+                    let badgeHtml = pkg.popular ? `<span class="pkg-badge">MOST POPULAR</span>` : '';
+                    let popularClass = pkg.popular ? ' popular' : '';
+                    let num = '0' + (index + 1);
+                    
+                    packagesHtml += `
+                        <div class="pkg-item${popularClass}">
+                            <div class="pkg-item-num">${num}</div>
+                            <div class="pkg-item-title-wrapper">
+                                <h4 class="pkg-item-title">${pkg.name}</h4>
+                                ${badgeHtml}
+                            </div>
+                            <p class="pkg-item-desc">${pkg.desc}</p>
+                            <div class="pkg-divider"></div>
+                            <div class="pkg-item-features">
+                                <ul>
+                                    ${featuresHtml}
+                                </ul>
+                            </div>
+                            <a href="#" class="pkg-item-cta">EXPLORE PACKAGE <span class="arr">→</span></a>
+                        </div>
+                    `;
+                });
+
+                contentDiv.innerHTML = packagesHtml;
+
+                layoutContainer.appendChild(contentDiv);
+
+                // Re-trigger scroll observe
+                pkgObserver.observe(layoutContainer);
+                const intro = document.querySelector('.pkg-intro');
+                if (intro && intro.classList.contains('revealed')) {
+                    layoutContainer.classList.add('revealed');
+                }
+            }
+
+            // Intersection Observer
+            const pkgObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                    }
+                });
+            }, { rootMargin: '0px 0px -100px 0px' });
+
+            const intro = document.querySelector('.pkg-intro');
+            if (intro) pkgObserver.observe(intro);
+            const footer = document.querySelector('.pkg-footer');
+            if (footer) pkgObserver.observe(footer);
+
+            render();
+        })();
+    </script>
+
+
+
+    <!-- ============================================================
+     SECTION 07: OUR WORK ENGINE
+     ============================================================ -->
+    <script>
+        (function () {
+            'use strict';
+            
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            const WORK_DATA = [
+                { id: '01', title: 'THE CLUB AT LONGVIEW', img: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=800', width: 450, x: 10, yBase: 20, speed: 1.15, rotate: -2, zIndex: 10 },
+                { id: '02', title: 'CIAO ITALIA FESTIVAL', img: 'https://images.unsplash.com/photo-1533174000222-1d575440d9b4?q=80&w=600', width: 300, x: 65, yBase: 27, speed: 0.85, rotate: 1, zIndex: 5 },
+                { id: '03', title: 'YADKIN OPENING', img: 'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=800', width: 400, x: 35, yBase: 35, speed: 1.05, rotate: -1, zIndex: 8 },
+                { id: '04', title: 'UNCC GALA', img: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=600', width: 350, x: 15, yBase: 42, speed: 0.9, rotate: 2, zIndex: 6 },
+                { id: '05', title: 'TREEHOUSE VINEYARD', img: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=800', width: 500, x: 55, yBase: 49, speed: 1.2, rotate: -1.5, zIndex: 12 },
+                { id: '06', title: 'EMBASSY SUITES', img: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=600', width: 280, x: 8, yBase: 57, speed: 0.8, rotate: 1, zIndex: 4 },
+                { id: '07', title: 'SWEET MAGNOLIA', img: 'https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=800', width: 420, x: 60, yBase: 64, speed: 1.1, rotate: 0, zIndex: 9 },
+                { id: '08', title: 'CHARLOTTE WATER', img: 'https://images.unsplash.com/photo-1551818255-e6e10975bc17?q=80&w=800', width: 320, x: 25, yBase: 71, speed: 0.95, rotate: -2, zIndex: 7 },
+                { id: '09', title: 'ROLLING HILLS', img: 'https://images.unsplash.com/photo-1522158637959-30385a09e0da?q=80&w=600', width: 380, x: 70, yBase: 78, speed: 1.05, rotate: 1.5, zIndex: 8 }
+            ];
+
+            const section = document.getElementById('portfolio');
+            const gallery = document.getElementById('owGallery');
+            
+            if (!section || !gallery) return;
+
+            const elements = [];
+            
+            WORK_DATA.forEach(data => {
+                const a = document.createElement('a');
+                a.href = "#project-" + data.id;
+                a.className = 'ow-project';
+                a.style.width = prefersReducedMotion ? '100%' : data.width + 'px';
+                a.style.zIndex = data.zIndex;
+                
+                const isMobile = window.innerWidth <= 768;
+                if (isMobile) {
+                    a.style.width = '80vw';
+                    a.style.left = (data.x > 50 ? '15vw' : '5vw');
+                } else {
+                    a.style.left = data.x + 'vw';
+                }
+
+                const rotation = prefersReducedMotion ? 0 : data.rotate;
+
+                a.innerHTML = `
+                    <img src="${data.img}" alt="${data.title}" style="transform: rotate(${rotation}deg);">
+                    <div class="ow-label">${data.id} ${data.title} | VIEW PROJECT &rarr;</div>
+                `;
+                
+                gallery.appendChild(a);
+                
+                elements.push({
+                    el: a,
+                    img: a.querySelector('img'),
+                    yBase: data.yBase,
+                    speed: data.speed,
+                    rotate: rotation
+                });
+            });
+
+            if (!prefersReducedMotion) {
+                let ticking = false;
+
+                function updateParallax() {
+                    const rect = section.getBoundingClientRect();
+                    const maxScroll = rect.height - window.innerHeight;
+                    let progress = 0;
+                    if (maxScroll > 0) {
+                        progress = -rect.top / maxScroll;
+                    }
+                    
+                    if (progress > -0.1 && progress < 1.1) {
+                        elements.forEach(item => {
+                            const targetProgress = item.yBase / 100;
+                            const diff = progress - targetProgress;
+                            const speedFactor = 4 * item.speed;
+                            const screenOffset = -diff * (window.innerHeight * speedFactor);
+                            const screenY = (window.innerHeight / 2) + screenOffset;
+                            const currentY = screenY - rect.top;
+                            
+                            // Align middle of image to currentY
+                            item.el.style.transform = `translate3d(0, calc(${currentY}px - 50%), 0)`;
+
+                            const elRect = item.el.getBoundingClientRect();
+                            if (elRect.top < window.innerHeight && elRect.bottom > 0) {
+                                item.el.classList.add('visible');
+                            } else {
+                                item.el.classList.remove('visible');
+                            }
+                        });
+                    }
+                    ticking = false;
+                }
+
+                window.addEventListener('scroll', () => {
+                    if (!ticking) {
+                        window.requestAnimationFrame(updateParallax);
+                        ticking = true;
+                    }
+                }, { passive: true });
+                updateParallax();
+            } else {
+                // Reduced motion layout
+                section.style.height = 'auto';
+                section.style.padding = '10rem 0';
+                gallery.style.position = 'relative';
+                gallery.style.display = 'flex';
+                gallery.style.flexDirection = 'column';
+                gallery.style.gap = '4rem';
+                gallery.style.alignItems = 'center';
+                elements.forEach(item => {
+                    item.el.style.position = 'relative';
+                    item.el.style.left = '0';
+                    item.el.classList.add('visible');
+                });
+            }
+
+            const title = document.getElementById('owTitle');
+            let initialDarkLoad = true;
+            const themeDarkObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        title.classList.add('revealed');
+                        document.body.classList.remove('theme-light');
+                    } else {
+                        if (!initialDarkLoad && entry.boundingClientRect.top > 0) {
+                            document.body.classList.add('theme-light');
+                        }
+                    }
+                });
+                initialDarkLoad = false;
+            }, { rootMargin: '0px 0px -50% 0px' });
+            const triggerDark = document.querySelector('.theme-trigger-dark');
+            if (triggerDark) themeDarkObserver.observe(triggerDark);
+        })();
+    </script>
+</body>
+
+
+</html>
