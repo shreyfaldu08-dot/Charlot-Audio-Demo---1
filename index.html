@@ -79,6 +79,12 @@
             line-height: 1.4;
         }
 
+        .nav-logo img {
+            height: 50px;
+            width: auto;
+            display: block;
+        }
+
         .nav-links {
             display: flex;
             gap: 48px;
@@ -488,6 +494,29 @@
         
         .ft-bottom-links a:hover {
             color: var(--text-main);
+        }
+
+        .ft-watermark {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 12.5vw;
+            font-weight: 700;
+            line-height: 0.75;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: -0.05em;
+            margin-top: 80px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            pointer-events: none;
+            user-select: none;
+            width: 100vw;
+            margin-left: calc(50% - 50vw);
+            margin-right: calc(50% - 50vw);
+            overflow: hidden;
+            white-space: nowrap;
+            display: flex;
+            justify-content: center;
         }
 
         @media (max-width: 1024px) {
@@ -1252,7 +1281,7 @@
 <body>
 
     <nav class="nav">
-        <div class="nav-logo">Charlotte<br>Audio<br>Rentals.</div>
+        <div class="nav-logo"><a href="#"><img src="whitelogo.png" alt="Charlotte Audio Rentals"></a></div>
         <div class="nav-links">
             <a href="#inventory">Inventory</a>
             <a href="#packages">Packages</a>
@@ -1647,6 +1676,8 @@
                 <span>Charlotte, NC</span>
             </div>
         </div>
+
+        <div class="ft-watermark">CHARLOTTE AUDIO</div>
     </footer>
 
     <script>
